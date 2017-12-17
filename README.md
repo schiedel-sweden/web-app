@@ -10,7 +10,8 @@ applications.
 
 1. Before you install the web app, go to our [API](https://github.com/schiedel-sweden/API) and follow the installation wizard first. You will need the API to run the web-app localy on your computer. After you've followed that guide came back here and continue. 
 
-2. ```BASH
+2. 
+```BASH
 git clone https://github.com/schiedel-sweden/web-app.git
 cd web-app
 npm install
