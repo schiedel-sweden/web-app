@@ -16,12 +16,12 @@ export default class Tillbud extends Component {
                     <TabList>
                         <Tab>Type Skorsten</Tab>
                         <Tab>Type Hus</Tab>
-                        <Tab>Skorstein</Tab>
+                        <Tab>Skorsten</Tab>
                         <Tab>Kundedata</Tab>
                         <Tab>Tillbud</Tab>
                         <Tab>Bestilling</Tab>
                     </TabList>
-                    
+
                     <TabPanel><ChimneyType /></TabPanel>
                     <TabPanel><HouseType /></TabPanel>
                     <TabPanel><Chimney /></TabPanel>
