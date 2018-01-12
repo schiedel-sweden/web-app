@@ -6,7 +6,7 @@ import './App.css';
 
 import Prisforslag from './views/Prisforslag/Prisforslag';
 import Produkter from './views/Produkter/Produkter';
-import Forhandler from './views/Forhandler/Forhandler';
+import Aterforsaljare from './views/Aterforsaljare/Aterforsaljare';
 import OmOss from './views/OmOss/OmOss';
 import ContactUs from './views/ContactUs/ContactUs';
 import MainPage from './views/Main/MainPage';
@@ -14,7 +14,7 @@ import MainPage from './views/Main/MainPage';
 export default class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { tabIndex: -1 };
+        this.state = { tabIndex: 0 };
     }
 
     render() {
@@ -22,20 +22,19 @@ export default class App extends Component {
             <div>
             <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                 <TabList>
-                    <Tab>Prisforslag</Tab>
+                    <Tab>Återförsäljare</Tab>
+                    <Tab>Prisförslag</Tab>
                     <Tab>Produkter</Tab>
-                    <Tab>Forhandler</Tab>
                     <Tab>Om oss</Tab>
                     <Tab>Kontakta oss</Tab>
                 </TabList>
-                
+
+                <TabPanel><MainPage /></TabPanel>
                 <TabPanel><Prisforslag /></TabPanel>
                 <TabPanel><Produkter /></TabPanel>
-                <TabPanel><Forhandler /></TabPanel>
                 <TabPanel><OmOss /></TabPanel>
                 <TabPanel><ContactUs /></TabPanel>
             </Tabs>
-            {this.state.tabIndex < 0 && <MainPage />}
             </div>
         );
       }

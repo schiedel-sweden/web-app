@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 
-export default class Forhandler extends Component {
+export default class Aterforsaljare extends Component {
     render() {
         return (
             <div>
-                <h1>Forhandler</h1>
+                <h1>Aterforsaljare</h1>
             </div>
 
         );
