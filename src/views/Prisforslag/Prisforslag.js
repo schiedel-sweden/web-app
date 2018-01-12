@@ -17,7 +17,7 @@ export default class Tillbud extends Component {
                         <Tab>Type Skorsten</Tab>
                         <Tab>Type Hus</Tab>
                         <Tab>Skorsten</Tab>
-                        <Tab>Kundedata</Tab>
+                        <Tab>Kundupgifter</Tab>
                         <Tab>Tillbud</Tab>
                         <Tab>Bestilling</Tab>
                     </TabList>

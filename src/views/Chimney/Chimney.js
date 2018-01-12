@@ -21,8 +21,8 @@ export default class Chimney extends Component {
             wireset: false,
             lokk: false,
 
-            roykinnforingLiten: null,
-            roykinnforingStor: null,
+            roykinnforingLiten: '',
+            roykinnforingStor: '',
 
         }
 
@@ -196,12 +196,12 @@ export default class Chimney extends Component {
                 <div>
                     <div>
                         <p>Roykinnforing 125-160</p>
-                        <input type="number" placeholder={0} value={this.state.roykinnforingLiten} onChange={(input) => this.setState({roykinnforingLiten: input.value})} />
+                        <input type="number" placeholder={0} value={this.state.roykinnforingLiten} onChange={(input) => this.setState({roykinnforingLiten: input.target.value})} />
                         <p>mm</p>
                     </div>
                     <div>
                         <p>Roykinnforing 150-160</p>
-                        <input type="number" placeholder={0} value={this.state.roykinnforingStor} onChange={(input) => this.setState({roykinnforingStor: input.value})} />
+                        <input type="number" placeholder={0} value={this.state.roykinnforingStor} onChange={(input) => this.setState({roykinnforingStor: input.target.value})} />
                         <p>mm</p>
                     </div>
                 </div>
