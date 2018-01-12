@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import logo from './logo.svg';
 import './App.css';
 
-import Tillbud from './views/Tillbud/Tillbud';
+import Prisforslag from './views/Prisforslag/Prisforslag';
 import Produkter from './views/Produkter/Produkter';
 import Forhandler from './views/Forhandler/Forhandler';
 import OmOss from './views/OmOss/OmOss';
@@ -22,13 +22,14 @@ export default class App extends Component {
             <div>
             <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                 <TabList>
-                    <Tab>Tillbud</Tab>
+                    <Tab>Prisforslag</Tab>
                     <Tab>Produkter</Tab>
                     <Tab>Forhandler</Tab>
                     <Tab>Om oss</Tab>
                     <Tab>Kontakta oss</Tab>
                 </TabList>
-                <TabPanel><Tillbud /></TabPanel>
+                
+                <TabPanel><Prisforslag /></TabPanel>
                 <TabPanel><Produkter /></TabPanel>
                 <TabPanel><Forhandler /></TabPanel>
                 <TabPanel><OmOss /></TabPanel>
