@@ -17,7 +17,19 @@ export default class App extends Component {
         this.state = {
             tabIndex: 0,
 
-            
+            // TODO: Add persistant state for entire program!
+            prisforslagState: {
+
+            },
+            produkterState: {
+
+            },
+            omOssState: {
+
+            },
+            contactUsState: {
+
+            },
 
 
 
