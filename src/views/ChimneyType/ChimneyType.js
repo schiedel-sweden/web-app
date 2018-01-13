@@ -7,42 +7,10 @@ export default class ChimeneyType extends Component {
         super(props);
 
         this.state = {
-            chimneyType: [
-                {
-                    id: 0,
-                    tagline: "PERMETER",
-                    ingress: "permeter"
-                },
-                {
-                    id: 1,
-                    tagline: "SOLID VENT",
-                    ingress: "solid vent"
-                },
-                {
-                    id: 2,
-                    tagline: "ETESJEPIPE",
-                    ingress: "etesjepipe"
-                },
-                {
-                    id: 3,
-                    tagline: "RONDO",
-                    ingress: "rondo"
-                },
-                {
-                    id: 4,
-                    tagline: "KING FIRE",
-                    ingress: "Peis og pipe i ett"
-                }
-            ],
+            chimneyType: this.props.propState.chimneyType,
 
-            choice: '',
-            options: [
-                'permeter',
-                'solid vent',
-                'etesjepipe',
-                'rondo',
-                'king fire'
-            ],
+            choice: this.props.propState.choice,
+            options: this.props.propState.options,
         }
 
     }
@@ -74,7 +42,11 @@ export default class ChimeneyType extends Component {
         catch(error) {
             console.log(error);
         }
-        //this.callback();
+        this.callback();
+    }
+
+    callback = () => {
+        this.props.parentCallback(this.state);
     }
 
 
@@ -98,7 +70,7 @@ export default class ChimeneyType extends Component {
 
                     <div>
                         <p>SKORSTENSTYP</p>
-                        <p onChange={(text) => this.setState({choice: text})}>{this.state.choice}</p>
+                        <p>{this.state.choice}</p>
                     </div>
                 </div>
             </div>
