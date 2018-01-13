@@ -5,103 +5,120 @@ export default class Chimney extends Component {
         super(props);
 
         this.state = {
-            alternative1: false,
-            alternative2: true,
+            alternative1: this.props.propState.alternative1,
+            alternative2: this.props.propState.alternative2,
 
-            pusset: false,
-            beslag: false,
-            feieluke: false,
-            flexiroll: false,
-            wakaflex: false,
-            topavdekning: false,
-            feieplatform: false,
-            tegelforblendet: false,
-            tetting: false,
+            pusset: this.props.propState.pusset,
+            beslag: this.props.propState.beslag,
+            feieluke: this.props.propState.feieluke,
+            flexiroll: this.props.propState.flexiroll,
+            wakaflex: this.props.propState.wakaflex,
+            topavdekning: this.props.propState.topavdekning,
+            feieplatform: this.props.propState.feieplatform,
+            tegelforblendet: this.props.propState.tegelforblendet,
+            tetting: this.props.propState.tetting,
 
-            wireset: false,
-            lokk: false,
+            wireset: this.props.propState.wireset,
+            lokk: this.props.propState.lokk,
 
-            roykinnforingLiten: '',
-            roykinnforingStor: '',
+            roykinnforingLiten: this.props.propState.roykinnforingLiten,
+            roykinnforingStor: this.props.propState.roykinnforingStor,
 
         }
 
     }
 
-    alt1 = () => {
-        this.setState({
+    alt1 = async () => {
+        await this.setState({
             alternative1: !this.state.alternative1
         });
+        this.callback();
     }
-    alt2 = () => {
-        this.setState({
+    alt2 = async () => {
+        await this.setState({
             alternative2: !this.state.alternative2
         });
+        this.callback();
     }
 
-    pusset = () => {
-        this.setState({
+    pusset = async () => {
+        await this.setState({
             pusset: !this.state.pusset,
         });
+        this.callback();
     }
-    topavdekning = () => {
-        this.setState({
+    topavdekning = async () => {
+        await this.setState({
             topavdekning: !this.state.topavdekning,
         });
+        this.callback();
     }
 
-    beslag = () => {
+    beslag = async () => {
         this.setState({
             beslag: !this.state.beslag,
         });
+        this.callback();
     }
 
-    topavdekning = () => {
+    topavdekning = async () => {
         this.setState({
             topavdekning: !this.state.topavdekning,
         });
+        this.callback();
     }
 
-    feieluke = () => {
+    feieluke = async () => {
         this.setState({
             feieluke: !this.state.feieluke,
         });
+        this.callback();
     }
 
-    tegelforblendet = () => {
+    tegelforblendet = async () => {
         this.setState({
             tegelforblendet: !this.state.tegelforblendet,
         });
+        this.callback();
     }
 
-    flexiroll = () => {
+    flexiroll = async () => {
         this.setState({
             flexiroll: !this.state.flexiroll,
         });
+        this.callback();
     }
 
-    tetting = () => {
+    tetting = async () => {
         this.setState({
             tetting: !this.state.tetting,
         });
+        this.callback();
     }
 
-    wakaflex = () => {
+    wakaflex = async () => {
         this.setState({
             wakaflex: !this.state.wakaflex,
         });
+        this.callback();
     }
 
-    wireset = () => {
+    wireset = async () => {
         this.setState({
             wireset: !this.state.wireset,
         });
+        this.callback();
     }
 
-    lokk = () => {
+    lokk = async () => {
         this.setState({
             lokk: !this.state.lokk,
         });
+        this.callback();
+    }
+
+    callback = () => {
+        this.props.parentCallback(this.state),
     }
 
 

@@ -65,6 +65,24 @@ export default class Tillbud extends Component {
 
             },
             ChimneyState: {
+                alternative1: false,
+                alternative2: true,
+
+                pusset: false,
+                beslag: false,
+                feieluke: false,
+                flexiroll: false,
+                wakaflex: false,
+                topavdekning: false,
+                feieplatform: false,
+                tegelforblendet: false,
+                tetting: false,
+
+                wireset: false,
+                lokk: false,
+
+                roykinnforingLiten: '',
+                roykinnforingStor: '',
 
             },
             customerDataState: {
@@ -89,6 +107,11 @@ export default class Tillbud extends Component {
             houseTypeState: state,
         });
     }
+    chimneyCallback = async (state) => {
+        await this.setState({
+            chimneyState: state,
+        });
+    }
 
     render() {
         return (
@@ -109,9 +132,12 @@ export default class Tillbud extends Component {
                     </TabPanel>
                     <TabPanel><HouseType
                                 propState={this.state.houseTypeState}
-                                parentCallback={this.houseTypeCallback}/>
+                                parentCallback={this.houseTypeCallback} />
                     </TabPanel>
-                    <TabPanel><Chimney /></TabPanel>
+                    <TabPanel><Chimney
+                                propState={this.state.chimneyState}
+                                parentCallback={this.chimneyCallback} />
+                    </TabPanel>
                     <TabPanel><CustomerData /></TabPanel>
                     <TabPanel><PricePage /></TabPanel>
                     <TabPanel><OrderPage /></TabPanel>
