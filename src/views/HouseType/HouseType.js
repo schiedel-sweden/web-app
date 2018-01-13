@@ -25,7 +25,7 @@ export default class HouseType extends Component {
         return (
             <div>
                 <div>
-                    <div><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} /></div>
+                    <div><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} alt='house sketch'/></div>
                 </div>
 
                 <div>

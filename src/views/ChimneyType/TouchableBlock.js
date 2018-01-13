@@ -27,7 +27,7 @@ export default class TouchableBlock extends Component {
     * @return styles
     */
     bGSwitchingColor(order){
-        if (order % 2 == 0) {
+        if (order % 2 === 0) {
           return styles.lightBackground;
         } else {
           return styles.darkBackground;
@@ -38,8 +38,8 @@ export default class TouchableBlock extends Component {
     */
     getArrowIcon(){
         const arrowIcon = this.state.visible
-            ? <img onClick={this.setVisibleDetail} src={require('../../images/arrow_opened.png')} style={styles.img} />
-            : <img onClick={this.setVisibleDetail} src={require('../../images/arrow.png')} style={styles.img} />;
+            ? <img onClick={this.setVisibleDetail} src={require('../../images/arrow_opened.png')} style={styles.img} alt='arrow to close dropdown' />
+            : <img onClick={this.setVisibleDetail} src={require('../../images/arrow.png')} style={styles.img} alt='arrow to open dropdown'/>;
         return arrowIcon;
     }
 
@@ -67,7 +67,8 @@ export default class TouchableBlock extends Component {
                                        src={require('../../images/add.png')}
                                        onClick={function() {
                                            this.props.touchMethod(this.props.order)
-                                       }.bind(this)} />
+                                       }.bind(this)}
+                                       alt='Add this item' />
                             </div>
                             {this.getArrowIcon()}
                         </div>

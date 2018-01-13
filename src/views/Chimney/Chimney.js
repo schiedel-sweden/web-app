@@ -113,13 +113,17 @@ export default class Chimney extends Component {
 
                     <h2>Typ av skorsten</h2>
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.alternative1} onChange={this.alt1} />
-                        <p>Alternative 1</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.alternative1} onChange={this.alt1} />
+                            Alternative 1
+                        </label>
                     </div>
 
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.alternative2} onChange={this.alt2} />
-                        <p>Alternative 2</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.alternative2} onChange={this.alt2} />
+                            Alternative 2
+                        </label>
                     </div>
                 </div>
 
@@ -127,44 +131,58 @@ export default class Chimney extends Component {
 
                 <div>
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.pusset} onChange={this.pusset} />
-                        <p>Pusset pipe</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.pusset} onChange={this.pusset} />
+                            Pusset pipe
+                        </label>
                     </div>
 
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.topavdekning} onChange={this.topavdekning} />
-                        <p>Topavdekninge</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <input type="checkbox" defaultChecked={this.state.beslag} onChange={this.beslag} />
-                        <p>Komplett firkantet beslag</p>
-                    </div>
-
-                    <div>
-                        <input type="checkbox" defaultChecked={this.state.feieplatform} onChange={this.feieplatform} />
-                        <p>Feieplatform (Kun for takstein)</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.topavdekning} onChange={this.topavdekning} />
+                            Topavdekninge
+                        </label>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.feieluke} onChange={this.feieluke} />
-                        <p>Feieluke over tak</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.beslag} onChange={this.beslag} />
+                            Komplett firkantet beslag
+                        </label>
                     </div>
 
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.tegelforblendet} onChange={this.tegelforblendet} />
-                        <p>Tegelforblendet pipe</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.feieplatform} onChange={this.feieplatform} />
+                            Feieplatform (Kun for takstein)
+                        </label>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.flexiroll} onChange={this.flexiroll} />
-                        <p>Flexiroll for tetting mot damsperre</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.feieluke} onChange={this.feieluke} />
+                            Feieluke over tak
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.tegelforblendet} onChange={this.tegelforblendet} />
+                            Tegelforblendet pipe
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.flexiroll} onChange={this.flexiroll} />
+                            Flexiroll for tetting mot damsperre
+                        </label>
                     </div>
 
                     <div>
@@ -175,34 +193,44 @@ export default class Chimney extends Component {
 
                 <div>
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.wakaflex} onChange={this.wakaflex} />
-                        <p>Wakaflex - Benyttes som ekstra tetting rundt beslag i spesielt i vaerutsatte områder</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.wakaflex} onChange={this.wakaflex} />
+                            Wakaflex - Benyttes som ekstra tetting rundt beslag i spesielt i vaerutsatte områder
+                        </label>
                     </div>
                 </div>
 
                 <h2>Tillval</h2>
                 <div>
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.wireset} onChange={this.wireset} />
-                        <p>Wireset for heising/montering</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.wireset} onChange={this.wireset} />
+                            Wireset for heising/montering
+                        </label>
                     </div>
 
                     <div>
-                        <input type="checkbox" defaultChecked={this.state.lokk} onChange={this.lokk} />
-                        <p>Lokk til tilluftsaddapter</p>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.lokk} onChange={this.lokk} />
+                            Lokk til tilluftsaddapter
+                        </label>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <p>Roykinnforing 125-160</p>
-                        <input type="number" placeholder={0} value={this.state.roykinnforingLiten} onChange={(input) => this.setState({roykinnforingLiten: input.target.value})} />
-                        <p>mm</p>
+                        <label>
+                            Roykinnforing 125-160
+                            <input type="number" placeholder={0} value={this.state.roykinnforingLiten} onChange={(input) => this.setState({roykinnforingLiten: input.target.value})} />
+                            mm
+                        </label>
                     </div>
                     <div>
-                        <p>Roykinnforing 150-160</p>
-                        <input type="number" placeholder={0} value={this.state.roykinnforingStor} onChange={(input) => this.setState({roykinnforingStor: input.target.value})} />
-                        <p>mm</p>
+                        <label>
+                            Roykinnforing 150-160
+                            <input type="number" placeholder={0} value={this.state.roykinnforingStor} onChange={(input) => this.setState({roykinnforingStor: input.target.value})} />
+                            mm
+                        </label>
                     </div>
                 </div>
 

@@ -18,8 +18,8 @@ export default class Tillbud extends Component {
                         <Tab>Type Hus</Tab>
                         <Tab>Skorsten</Tab>
                         <Tab>Kundupgifter</Tab>
-                        <Tab>Tillbud</Tab>
-                        <Tab>Bestilling</Tab>
+                        <Tab>Prisförslag</Tab>
+                        <Tab>Beställing</Tab>
                     </TabList>
 
                     <TabPanel><ChimneyType /></TabPanel>
