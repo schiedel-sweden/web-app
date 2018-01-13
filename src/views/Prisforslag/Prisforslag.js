@@ -53,7 +53,15 @@ export default class Tillbud extends Component {
                 ],
             },
             houseTypeState: {
-                test: 'text',
+                antalPiper: '',
+                totalHeight: '',
+                heightAboveRoof: '',
+                roofAngle: '',
+
+                tillMone: '',
+                franMone: '',
+
+                calcValue: '',
 
             },
             ChimneyState: {
@@ -76,6 +84,11 @@ export default class Tillbud extends Component {
             chimneyTypeState: state,
         });
     }
+    houseTypeCallback = async (state) => {
+        await this.setState({
+            houseTypeState: state,
+        });
+    }
 
     render() {
         return (
@@ -94,7 +107,10 @@ export default class Tillbud extends Component {
                                 propState={this.state.chimneyTypeState}
                                 parentCallback={this.chimneyTypeCallback} />
                     </TabPanel>
-                    <TabPanel><HouseType /></TabPanel>
+                    <TabPanel><HouseType
+                                propState={this.state.houseTypeState}
+                                parentCallback={this.houseTypeCallback}/>
+                    </TabPanel>
                     <TabPanel><Chimney /></TabPanel>
                     <TabPanel><CustomerData /></TabPanel>
                     <TabPanel><PricePage /></TabPanel>
