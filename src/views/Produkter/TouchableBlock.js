@@ -84,11 +84,6 @@ export default class TouchableBlock extends Component {
                             </p>
                         </div>
                         <div>
-                            <div>
-                                <img style={styles.img}
-                                       src={require('../../images/add.png')}
-                                       alt='Add this item' />
-                            </div>
                             {this.getArrowIcon()}
                         </div>
                     </div>
