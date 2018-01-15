@@ -40,7 +40,7 @@ export default class TouchableBlock extends Component {
     */
     listMaterial() {
         let isLightBackground = true;
-        if (this.props.order % 2 == 0) {
+        if (this.props.order % 2 === 0) {
           isLightBackground = true;
         } else {
           isLightBackground = false;

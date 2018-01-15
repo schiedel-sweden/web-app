@@ -55,6 +55,7 @@ export default class MaterialDetail extends Component {
               <img
                   style={styles.img}
                   src={require('../../images/roof.png')}
+                  alt='roof with chimney'
               />
               <div style={styles.container}>
                   <h2>

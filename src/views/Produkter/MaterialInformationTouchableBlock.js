@@ -26,8 +26,8 @@ export default class MaterialInformationTouchableBlock extends Component {
     */
     getArrowIcon(){
         const arrowIcon = this.state.visible
-            ? <img  src={require('../../images/arrow_opened.png')}/>
-            : <img src={require('../../images/arrow.png')} />;
+            ? <img  src={require('../../images/arrow_opened.png')} alt='opened arrow'/>
+            : <img src={require('../../images/arrow.png')} alt='closed arrow'/>;
         return arrowIcon;
     }
     /**

@@ -123,9 +123,8 @@ export default class Produkter extends Component {
                 {this.state.isMaterialDetailViewActived &&
 
                     <img style={styles.img}
-                        src={
-                            require('../../images/arrow_opened.png')
-                        }
+                        src={require('../../images/arrow_opened.png')}
+                        alt='arrow opened'
                     />
                 }
 

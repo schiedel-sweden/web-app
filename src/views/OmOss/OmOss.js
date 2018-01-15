@@ -30,7 +30,7 @@ export default class OmOss extends Component {
                 </div>
 
                 <div>
-                    <img src={require('./footer.png')} />
+                    <img src={require('./footer.png')} alt='footer' />
                 </div>
 
             </div>

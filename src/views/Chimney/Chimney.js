@@ -118,7 +118,7 @@ export default class Chimney extends Component {
     }
 
     callback = () => {
-        this.props.parentCallback(this.state),
+        this.props.parentCallback(this.state);
     }
 
 
