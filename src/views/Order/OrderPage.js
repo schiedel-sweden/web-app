@@ -8,50 +8,34 @@ export default class OrderPage extends Component {
         super(props);
 
         this.state = {
-            rowItems: [
-                    {
-                        number: 123,
-                        antal: 0,
-                        pris: 3000,
-                        sum: 0,
-                    },
-                    {
-                        number: 231,
-                        antal: 0,
-                        pris: 1500,
-                        sum: 0,
-                    },
-                    {
-                        number: 312,
-                        antal: 0,
-                        pris: 2000,
-                        sum: 0,
-                    },
-                ],
-            kranbil: false,
-            plukket: false,
-            kjorer: false,
+            rowItems: this.props.propState.rowItems,
+            kranbil: this.props.propState.kranbil,
+            plukket: this.props.propState.plukket,
+            kjorer: this.props.propState.kjorer,
 
-            beskjed: '',
+            beskjed: this.props.propState.beskjed,
 
 
         }
     }
 
-    kranbil = () => {
-        this.setState({
+    kranbil = async () => {
+        await this.setState({
             kranbil: !this.state.kranbil,
         });
+        this.callback();
     }
-    plukket = () => {
-        this.setState({
+    plukket = async () => {
+        await this.setState({
             plukket: !this.state.plukket,
         });
+        this.callback();
     }
-    kjorer = () => {
-        this.setState({
+    kjorer = async () => {
+        await this.setState({
             kjorer: !this.state.kjorer,
         });
+        this.callback();
     }
 
     sendCallback = async (state) => {
@@ -85,11 +69,11 @@ export default class OrderPage extends Component {
             }
 
         });
-        //this.parentCallback();
+        this.callback();
     }
 
-    parentCallback = () => {
-
+    callback = () => {
+        this.props.parentCallback(this.state);
     }
 
     render() {
@@ -184,7 +168,7 @@ export default class OrderPage extends Component {
                 <div>
                     <label>
                         beskjed
-                        <input type="text" onChange={(input) => this.setState({beskjed: input.target.value})} />
+                        <input type="text" onChange={async (input) => {await this.setState({beskjed: input.target.value});this.callback();}} />
                     </label>
                 </div>
 

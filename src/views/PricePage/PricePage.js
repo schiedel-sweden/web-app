@@ -108,7 +108,7 @@ export default class PricePage extends Component {
                     <h3>Angitte mått</h3>
                     <div>
                         <p>Høyde gulv pipetopp</p>
-                        <input value={this.state.gulvPipetopp} placeholder={0} type="numeber" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
+                        <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
                         <p>mm</p>
                     </div>
 
