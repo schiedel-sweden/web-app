@@ -110,7 +110,50 @@ export default class Tillbud extends Component {
 
             },
             pricePageState: {
+                pipe: 'pipe selection',
 
+                gulvPipetopp: '',
+                heightAboveRoof: '',
+                roofAngle: '',
+                totalHeight: '',
+                ytterelement: '',
+                forningsror: '',
+                utsparningsmal: '',
+                andre: '',
+
+                totalRabatt: 0,
+                frakt: 0,
+
+                rowItems: [
+                        {
+                            number: 123,
+                            antal: 0,
+                            pris: 3000,
+                            sum: 0,
+                        },
+                        {
+                            number: 231,
+                            antal: 0,
+                            pris: 1500,
+                            sum: 0,
+                        },
+                        {
+                            number: 312,
+                            antal: 0,
+                            pris: 2000,
+                            sum: 0,
+                        },
+                    ],
+
+                tillbud: false,
+                ordrebekreftelse: false,
+                visKunTotalsum: false,
+
+                nettoSum: 0,
+                moms: 0,
+                totalSum: 0,
+
+                beskjed: '',
             },
             orderPageState: {
 
@@ -136,6 +179,11 @@ export default class Tillbud extends Component {
     customerDataCallback = async (state) => {
         await this.setState({
             customerDataState: state,
+        });
+    }
+    pricePageCallback = async (state) => {
+        await this.setState({
+            pricePageState: state,
         });
     }
 
@@ -168,7 +216,10 @@ export default class Tillbud extends Component {
                                 propState={this.state.customerDataState}
                                 parentCallback={this.customerDataCallback}/>
                     </TabPanel>
-                    <TabPanel><PricePage /></TabPanel>
+                    <TabPanel><PricePage
+                                propState={this.state.pricePageState}
+                                parentCallback={this.pricePageCallback} />
+                    </TabPanel>
                     <TabPanel><OrderPage /></TabPanel>
 
 
