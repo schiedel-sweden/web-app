@@ -64,7 +64,8 @@ export default class Tillbud extends Component {
                 calcValue: '',
 
             },
-            ChimneyState: {
+
+            chimneyState: {
                 alternative1: false,
                 alternative2: true,
 
@@ -86,6 +87,26 @@ export default class Tillbud extends Component {
 
             },
             customerDataState: {
+                company: '',
+
+                firstName: '',
+                surName: '',
+
+                adress: '',
+                postnumber: '',
+
+                city: '',
+                country: '',
+
+                sameAsAbove: false,
+
+                receiver: '',
+
+                receiveAdress: '',
+                receivePostnumber: '',
+
+                receiverCity: '',
+                receiverCountry: '',
 
             },
             pricePageState: {
@@ -110,6 +131,11 @@ export default class Tillbud extends Component {
     chimneyCallback = async (state) => {
         await this.setState({
             chimneyState: state,
+        });
+    }
+    customerDataCallback = async (state) => {
+        await this.setState({
+            customerDataState: state,
         });
     }
 
@@ -138,7 +164,10 @@ export default class Tillbud extends Component {
                                 propState={this.state.chimneyState}
                                 parentCallback={this.chimneyCallback} />
                     </TabPanel>
-                    <TabPanel><CustomerData /></TabPanel>
+                    <TabPanel><CustomerData
+                                propState={this.state.customerDataState}
+                                parentCallback={this.customerDataCallback}/>
+                    </TabPanel>
                     <TabPanel><PricePage /></TabPanel>
                     <TabPanel><OrderPage /></TabPanel>
 
