@@ -87,9 +87,6 @@ export default class TouchableBlock extends Component {
                             <div>
                                 <img style={styles.img}
                                        src={require('../../images/add.png')}
-                                       onClick={function() {
-                                           this.props.touchMethod(this.props.order)
-                                       }.bind(this)}
                                        alt='Add this item' />
                             </div>
                             {this.getArrowIcon()}

@@ -7,10 +7,13 @@ export default class ContactUs extends Component {
         super(props);
 
         this.state = {
-            name: '',
-            email: '',
-            message: '',
+            name: this.props.propState.name,
+            email: this.props.propState.email,
+            message: this.props.propState.message,
         }
+    }
+    callback = () => {
+        this.props.parentCallback(this.state);
     }
 
 
@@ -26,9 +29,9 @@ export default class ContactUs extends Component {
                     </div>
                     <div>
                         <form>
-                            <input type="text" placeholder={'Ditt namn'} value={this.state.name} onChange={(name) => this.setState({name: name.target.value})} />
-                            <input type="email" placeholder={'Din e-mail'} value={this.state.email} onChange={(email) => this.setState({email: email.target.value})} />
-                            <input type="text" placeholder={'Ditt meddelande'} value={this.state.message} onChange={(message) => this.setState({message: message.target.value})} />
+                            <input type="text" placeholder={'Ditt namn'} value={this.state.name} onChange={async (name) => {await this.setState({name: name.target.value});this.callback();}} />
+                            <input type="email" placeholder={'Din e-mail'} value={this.state.email} onChange={async (email) => {await this.setState({email: email.target.value});this.callback();}} />
+                            <input type="text" placeholder={'Ditt meddelande'} value={this.state.message} onChange={async (message) => {await this.setState({message: message.target.value});this.callback();}} />
                         </form>
                         <button type="submit">Skicka!</button>
                     </div>

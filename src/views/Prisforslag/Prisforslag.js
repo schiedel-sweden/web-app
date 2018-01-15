@@ -14,174 +14,13 @@ export default class Tillbud extends Component {
         super(props);
 
         this.state = {
-            chimneyTypeState: {
-                chimneyType: [
-                    {
-                        id: 0,
-                        tagline: "PERMETER",
-                        ingress: "permeter"
-                    },
-                    {
-                        id: 1,
-                        tagline: "SOLID VENT",
-                        ingress: "solid vent"
-                    },
-                    {
-                        id: 2,
-                        tagline: "ETESJEPIPE",
-                        ingress: "etesjepipe"
-                    },
-                    {
-                        id: 3,
-                        tagline: "RONDO",
-                        ingress: "rondo"
-                    },
-                    {
-                        id: 4,
-                        tagline: "KING FIRE",
-                        ingress: "Peis og pipe i ett"
-                    }
-                ],
+            chimneyTypeState: this.props.propState.chimneyTypeState,
+            houseTypeState: this.props.propState.houseTypeState,
 
-                choice: '',
-                options: [
-                    'permeter',
-                    'solid vent',
-                    'etesjepipe',
-                    'rondo',
-                    'king fire'
-                ],
-            },
-            houseTypeState: {
-                antalPiper: '',
-                totalHeight: '',
-                heightAboveRoof: '',
-                roofAngle: '',
-
-                tillMone: '',
-                franMone: '',
-
-                calcValue: '',
-
-            },
-
-            chimneyState: {
-                alternative1: false,
-                alternative2: true,
-
-                pusset: false,
-                beslag: false,
-                feieluke: false,
-                flexiroll: false,
-                wakaflex: false,
-                topavdekning: false,
-                feieplatform: false,
-                tegelforblendet: false,
-                tetting: false,
-
-                wireset: false,
-                lokk: false,
-
-                roykinnforingLiten: '',
-                roykinnforingStor: '',
-
-            },
-            customerDataState: {
-                company: '',
-
-                firstName: '',
-                surName: '',
-
-                adress: '',
-                postnumber: '',
-
-                city: '',
-                country: '',
-
-                sameAsAbove: false,
-
-                receiver: '',
-
-                receiveAdress: '',
-                receivePostnumber: '',
-
-                receiverCity: '',
-                receiverCountry: '',
-
-            },
-            pricePageState: {
-                pipe: 'pipe selection',
-
-                gulvPipetopp: '',
-                heightAboveRoof: '',
-                roofAngle: '',
-                totalHeight: '',
-                ytterelement: '',
-                forningsror: '',
-                utsparningsmal: '',
-                andre: '',
-
-                totalRabatt: 0,
-                frakt: 0,
-
-                rowItems: [
-                        {
-                            number: 123,
-                            antal: 0,
-                            pris: 3000,
-                            sum: 0,
-                        },
-                        {
-                            number: 231,
-                            antal: 0,
-                            pris: 1500,
-                            sum: 0,
-                        },
-                        {
-                            number: 312,
-                            antal: 0,
-                            pris: 2000,
-                            sum: 0,
-                        },
-                    ],
-
-                tillbud: false,
-                ordrebekreftelse: false,
-                visKunTotalsum: false,
-
-                nettoSum: 0,
-                moms: 0,
-                totalSum: 0,
-
-                beskjed: '',
-            },
-            orderPageState: {
-                rowItems: [
-                        {
-                            number: 123,
-                            antal: 0,
-                            pris: 3000,
-                            sum: 0,
-                        },
-                        {
-                            number: 231,
-                            antal: 0,
-                            pris: 1500,
-                            sum: 0,
-                        },
-                        {
-                            number: 312,
-                            antal: 0,
-                            pris: 2000,
-                            sum: 0,
-                        },
-                    ],
-                kranbil: false,
-                plukket: false,
-                kjorer: false,
-
-                beskjed: '',
-            },
+            chimneyState: this.props.propState.chimneyState,
+            customerDataState: this.props.propState.customerDataState,
+            pricePageState: this.props.propState.pricePageState,
+            orderPageState: this.props.propState.orderPageState,
 
         }
     }
@@ -189,26 +28,30 @@ export default class Tillbud extends Component {
         await this.setState({
             chimneyTypeState: state,
         });
-        this.setState({
+        await this.setState({
             pricePageState: {
                 pipe: state.choice,
             },
         });
+        this.callback();
     }
     houseTypeCallback = async (state) => {
         await this.setState({
             houseTypeState: state,
         });
+        this.callback();
     }
     chimneyCallback = async (state) => {
         await this.setState({
             chimneyState: state,
         });
+        this.callback();
     }
     customerDataCallback = async (state) => {
         await this.setState({
             customerDataState: state,
         });
+        this.callback();
     }
     pricePageCallback = async (state) => {
         await this.setState({
@@ -219,6 +62,7 @@ export default class Tillbud extends Component {
                 rowItems: state.rowItems,
             }
         });
+        this.callback();
     }
     orderPageCallback = async (state) => {
         await this.setState({
@@ -229,6 +73,10 @@ export default class Tillbud extends Component {
                 rowItems: state.rowItems,
             }
         });
+        this.callback();
+    }
+    callback = () => {
+        this.props.parentCallback(this.state);
     }
 
     render() {
