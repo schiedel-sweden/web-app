@@ -107,49 +107,64 @@ export default class PricePage extends Component {
                 <div>
                     <h3>Angitte mått</h3>
                     <div>
-                        <p>Høyde gulv pipetopp</p>
-                        <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
-                        <p>mm</p>
+                        <label>
+                            Høyde gulv pipetopp
+                            <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
+                            mm
+                        </label>
                     </div>
 
                     <div>
-                        <p>Höjd över tak (H2)</p>
-                        <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {this.setState({heightAboveRoof: input.target.value});this.callback();}} />
-                        <p>mm</p>
+                        <label>
+                            Höjd över tak (H2)
+                            <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {this.setState({heightAboveRoof: input.target.value});this.callback();}} />
+                            mm
+                        </label>
                     </div>
 
                     <div>
-                        <p>Takvinkel</p>
-                        <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {this.setState({roofAngle: input.target.value});this.callback();}} />
-                        <p>grader</p>
+                        <label>
+                            Takvinkel
+                            <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {this.setState({roofAngle: input.target.value});this.callback();}} />
+                            grader
+                        </label>
                     </div>
 
                     <div>
-                        <p>Total høyde</p>
-                        <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {this.setState({totalHeight: input.target.value});this.callback();}} />
-                        <p>mm</p>
+                        <label>
+                            Total høyde
+                            <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {this.setState({totalHeight: input.target.value});this.callback();}} />
+                            mm
+                        </label>
                     </div>
 
                     <div>
-                        <p>Ytterelement</p>
-                        <input value={this.state.ytterelement} placeholder={0} type="number" onChange={async (input) => {this.setState({ytterelement: input.target.value});this.callback();}} />
-                        <p>mm</p>
+                        <label>
+                            Ytterelement
+                            <input value={this.state.ytterelement} placeholder={0} type="number" onChange={async (input) => {this.setState({ytterelement: input.target.value});this.callback();}} />
+                            mm
+                        </label>
                     </div>
 
                     <div>
-                        <p>Forningsrør</p>
-                        <input value={this.state.forningsror} placeholder={0} type="number" onChange={async (input) => {this.setState({forningsror: input.target.value});this.callback();}} />
-                        <p></p>
+                        <label>
+                            Forningsrør
+                            <input value={this.state.forningsror} placeholder={0} type="number" onChange={async (input) => {this.setState({forningsror: input.target.value});this.callback();}} />
+                        </label>
                     </div>
 
                     <div>
-                        <p>Utsparningsmål</p>
-                        <input value={this.state.utsparningsmal} placeholder={0} type="number" onChange={async (input) => {this.setState({utsparningsmal: input.target.value});this.callback();}} />
+                        <label>
+                            Utsparningsmål
+                            <input value={this.state.utsparningsmal} placeholder={0} type="number" onChange={async (input) => {this.setState({utsparningsmal: input.target.value});this.callback();}} />
+                        </label>
                     </div>
 
                     <div>
-                        <p>Andre</p>
-                        <input value={this.state.andre} type="text" onChange={async (input) => {this.setState({andre: input.target.value});this.callback();}} />
+                        <label>
+                            Andre
+                            <input value={this.state.andre} type="text" onChange={async (input) => {this.setState({andre: input.target.value});this.callback();}} />
+                        </label>
                     </div>
 
                     <div>
@@ -187,21 +202,27 @@ export default class PricePage extends Component {
 
                     <div>
                         <div>
-                            <p>Netto</p>
-                            <p>{this.state.nettoSum}</p>
-                            <p>kr</p>
+                            <label>
+                                Netto
+                                {this.state.nettoSum}
+                                kr
+                            </label>
                         </div>
 
                         <div>
-                            <p>Moms (25%)</p>
-                            <p>{this.state.moms}</p>
-                            <p>kr</p>
+                            <label>
+                                Moms (25%)
+                                {this.state.moms}
+                                kr
+                            </label>
                         </div>
 
                         <div>
-                            <p>Sum</p>
-                            <p>{this.state.totalSum}</p>
-                            <p>kr</p>
+                            <label>
+                                Sum
+                                {this.state.totalSum}
+                                kr
+                            </label>
                         </div>
 
                     </div>
