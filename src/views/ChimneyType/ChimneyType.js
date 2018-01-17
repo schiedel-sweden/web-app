@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Row, Col} from 'reactstrap';
 
 import TouchableBlock from './TouchableBlock';
 
@@ -62,9 +63,7 @@ export default class ChimeneyType extends Component {
 
     render() {
         return (
-            <div>
-                <h1>ChimneyType</h1>
-
+            <Col md={12}>
                 <div>
                     {this.listItems()}
 
@@ -73,7 +72,7 @@ export default class ChimeneyType extends Component {
                         <p>{this.state.choice}</p>
                     </div>
                 </div>
-            </div>
+            </Col>
 
         );
 
