@@ -14,11 +14,11 @@ export default class MainPage extends Component {
 
                     <Row>
                         <Col md={6}>
-                            <img src={require('../../images/prisforslag.png')} style={styles.image} alt='got to price suggestion' />
+                            <img onClick={this.props.navPris} src={require('../../images/prisforslag.png')} style={styles.image} alt='got to price suggestion' />
                             <h2>Tillbud</h2>
                         </Col>
                         <Col md={6}>
-                            <img class="img-responsive" src={require('../../images/produkter.png')} style={styles.image} alt='got to products'/>
+                            <img onClick={this.props.navProd} src={require('../../images/produkter.png')} style={styles.image} alt='got to products'/>
                             <h2>Produkter</h2>
                         </Col>
                     </Row>
@@ -36,5 +36,7 @@ const styles = {
         "max-width": "100%",
         "height": "auto",
         "display": "block",
+        "cursor": "pointer",
+        "cursor": "hand",
     }
 }

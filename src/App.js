@@ -17,7 +17,6 @@ export default class App extends Component {
         this.state = {
             tabIndex: 0,
 
-            // TODO: Add persistant state for entire program!
             prisforslagState: {
                 chimneyTypeState: {
                     chimneyType: [
@@ -217,6 +216,16 @@ export default class App extends Component {
         });
     }
 
+    navToPrisforslag = () => {
+        this.setState({
+            tabIndex: 1,
+        });
+    }
+    navToProducts = () => {
+        this.setState({
+            tabIndex: 2,
+        });
+    }
     render() {
         return (
             <div class="container">
@@ -237,7 +246,10 @@ export default class App extends Component {
                                         <Tab>Kontakta oss</Tab>
                                     </TabList>
 
-                                    <TabPanel><MainPage /></TabPanel>
+                                    <TabPanel><MainPage
+                                                navPris={this.navToPrisforslag}
+                                                navProd={this.navToProducts} />
+                                    </TabPanel>
                                     <TabPanel><Prisforslag
                                                 propState={this.state.prisforslagState}
                                                 parentCallback={this.prisforslagCallback} />

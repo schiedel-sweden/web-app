@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 
+import {Row, Col} from 'reactstrap';
 
 export default class OmOss extends Component {
     render() {
         return (
-            <div>
-                <div>
+            <Col md={12}>
+                <Row>
+                    <Col md={1}></Col>
+                    <Col md={10}>
                     <h2>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"</h2>
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</h2>
+                    </Col>
+                    <Col md={1}></Col>
 
-                </div>
-                <div>
+                </Row>
+                <Row>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor olor in </p>
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -22,18 +27,18 @@ export default class OmOss extends Component {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                     laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repr</p>
-                </div>
+                </Row>
 
-                <div style={styles.bkgnd}>
+                <Row style={styles.bkgnd}>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                </div>
+                </Row>
 
-                <div>
+                <Row>
                     <img src={require('./footer.png')} alt='footer' />
-                </div>
+                </Row>
 
-            </div>
+            </Col>
 
         );
 
