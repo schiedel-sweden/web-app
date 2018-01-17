@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Form, FormGroup, Button} from 'reactstrap';
 
 
 export default class ContactUs extends Component {
@@ -32,22 +32,23 @@ export default class ContactUs extends Component {
                     </Row>
                     <Row>
                         <Col md={12}>
-                        <form>
-                            <Row>
-                                <input type="text" placeholder={'Ditt namn'} value={this.state.name} onChange={async (name) => {await this.setState({name: name.target.value});this.callback();}} />
-                            </Row>
-                            <Row>
-                                <input type="email" placeholder={'Din e-mail'} value={this.state.email} onChange={async (email) => {await this.setState({email: email.target.value});this.callback();}} />
-                            </Row>
-                            <Row>
-                                <textarea placeholder={'Ditt meddelande'} value={this.state.message} onChange={async (message) => {await this.setState({message: message.target.value});this.callback();}} />
-                            </Row>
-                        </form>
+                        <Form style={{width: '100%'}}>
+                            <FormGroup style={{width: '100%'}}>
+                                <input type="text" style={styles.formItem} placeholder={'Ditt namn'} value={this.state.name} onChange={async (name) => {await this.setState({name: name.target.value});this.callback();}} />
+                            </FormGroup>
+                            <FormGroup>
+                                <input type="email" style={styles.formItem} placeholder={'Din e-mail'} value={this.state.email} onChange={async (email) => {await this.setState({email: email.target.value});this.callback();}} />
+                            </FormGroup>
+                            <FormGroup>
+                                <textarea style={styles.formTextInput} placeholder={'Ditt meddelande'} value={this.state.message} onChange={async (message) => {await this.setState({message: message.target.value});this.callback();}} />
+                            </FormGroup>
+                        </Form>
                         </Col>
 
                     </Row>
-                    <Row>
-                    <button type="submit">Skicka!</button>
+                    {/* TODO: align button to the right*/}
+                    <Row style={{marginBottom: 30,}}>
+                        <Button style={{marginLeft:'85%'}} type="submit">Skicka!</Button>
                     </Row>
 
                     <Row style={styles.centerText}>
@@ -59,12 +60,12 @@ export default class ContactUs extends Component {
 
                         <Col md={4}>
                             <img src={require('../../images/icons/kontakt.png')} alt='phone to schiedel' style={styles.img} />
-                            <p>013 - 10 70 50</p>
+                            <p style={{color: '#F9CE3C'}}>013 - 10 70 50</p>
                         </Col>
 
                         <Col md={4}>
                             <img src={require('../../images/icons/email.png')} alt='email schiedel' style={styles.img} />
-                            <p>info@schiedel.se</p>
+                            <p style={{color: '#F9CE3C'}}>info@schiedel.se</p>
                         </Col>
                     </Row>
 
@@ -86,5 +87,21 @@ const styles = {
     centerText: {
         textAlign: 'center',
     },
+    formItem: {
+        maxWidth: '100%',
+        width: '90%',
+        marginLeft: '5%',
+        marginRight: '5%',
+
+    },
+    formTextInput: {
+        maxWidth: '100%',
+        width: '90%',
+        marginLeft: '5%',
+        marginRight: '5%',
+        maxHeight: 400,
+        height: 300,
+
+    }
 
 }
