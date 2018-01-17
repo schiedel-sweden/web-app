@@ -28,8 +28,8 @@ export default class HouseType extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <div><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} alt='house sketch'/></div>
+                <div class="row">
+                    <div ><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} alt='house sketch'/></div>
                 </div>
 
                 <div>

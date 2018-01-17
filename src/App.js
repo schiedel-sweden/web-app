@@ -219,37 +219,44 @@ export default class App extends Component {
 
     render() {
         return (
-            <div>
-                <header className="App-header" style={{height: 40}}>
+            <div class="container">
+
+                <header className="App-header" style={{height: 60}}>
                     <img src={logo} alt="logo" />
                 </header>
-            <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
-                <TabList>
-                    <Tab>Återförsäljare</Tab>
-                    <Tab>Prisförslag</Tab>
-                    <Tab>Produkter</Tab>
-                    <Tab>Om oss</Tab>
-                    <Tab>Kontakta oss</Tab>
-                </TabList>
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-10">
+                                <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
+                                    <TabList>
+                                        <Tab>Återförsäljare</Tab>
+                                        <Tab>Prisförslag</Tab>
+                                        <Tab>Produkter</Tab>
+                                        <Tab>Om oss</Tab>
+                                        <Tab>Kontakta oss</Tab>
+                                    </TabList>
 
-                <TabPanel><MainPage /></TabPanel>
-                <TabPanel><Prisforslag
-                            propState={this.state.prisforslagState}
-                            parentCallback={this.prisforslagCallback} />
-                </TabPanel>
-                <TabPanel><Produkter /></TabPanel>
-                <TabPanel><OmOss /></TabPanel>
-                <TabPanel><ContactUs
-                            propState={this.state.contactUsState}
-                            parentCallback={this.contactUsCallback} />
-                </TabPanel>
-            </Tabs>
+                                    <TabPanel><MainPage /></TabPanel>
+                                    <TabPanel><Prisforslag
+                                                propState={this.state.prisforslagState}
+                                                parentCallback={this.prisforslagCallback} />
+                                    </TabPanel>
+                                    <TabPanel><Produkter /></TabPanel>
+                                    <TabPanel><OmOss /></TabPanel>
+                                    <TabPanel><ContactUs
+                                                propState={this.state.contactUsState}
+                                                parentCallback={this.contactUsCallback} />
+                                    </TabPanel>
+                                </Tabs>
+                            </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
             </div>
         );
       }
     }
-
-
 
 let styles = {
   icon: {
