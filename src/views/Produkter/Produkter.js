@@ -26,7 +26,7 @@ export default class Produkter extends Component {
         this.fetchData = this.fetchData.bind(this);
         this.getmaterial = this.getmaterial.bind(this);
         this.listTouchableBlock = this.listTouchableBlock.bind(this);
-        this.setActivematerialDetailView = this.setActivematerialDetailView.bind(this);
+        this.setActiveMaterialDetailView = this.setActiveMaterialDetailView.bind(this);
         this.activeView = this.activeView.bind(this);
     }
 
@@ -52,7 +52,7 @@ export default class Produkter extends Component {
     /**
     * @return bool
     */
-    setActivematerialDetailView(e) {
+    setActiveMaterialDetailView(e) {
         e.preventDefault()
           this.setState({
             ismaterialDetailViewActived: !this.state.ismaterialDetailViewActived
@@ -101,7 +101,7 @@ export default class Produkter extends Component {
             visible={this.state.visible1}
             material={this.state.material}
             order={i}
-            setActivematerialDetailView = {this.setActivematerialDetailView}/>
+            setActiveMaterialDetailView = {this.setActiveMaterialDetailView}/>
         );
         return listTouchableBlock;
     }
@@ -128,8 +128,7 @@ export default class Produkter extends Component {
                     />
                 }
 
-            {this.activeView()}
-
+                {this.activeView()}
             </div>
         );
     }

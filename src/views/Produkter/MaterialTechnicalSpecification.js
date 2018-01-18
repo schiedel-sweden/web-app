@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Row, Col} from 'reactstrap';
+import './Border.css';
 
 
 export default class MaterialTechnicalSpecification extends Component {
@@ -15,35 +17,28 @@ export default class MaterialTechnicalSpecification extends Component {
     */
     render() {
         return (
-          <div style={styles.container}>
-              <div style={styles.textWrapper}>
-                  <div style={styles.tecSpec}>
+          <div>
+              <Row className='borderBottom' style={styles.textWrapper}>
+                  <Col>
                       <p>
                           {this.props.matTecSpec}:
                       </p>
-                  </div>
-                  <div>
+                  </Col>
+                  <Col>
                       <p>
                           Value
                       </p>
-                  </div>
-              </div>
+                  </Col>
+              </Row>
           </div>
         );
     }
 }
 
 const styles = {
-    container: {
-
-    },
     textWrapper: {
-        flexDirection: 'row',
-        borderRadius: 1,
-        borderBottomWidth: 1,
-        borderColor: '#B9B9B9',
-    },
-    tecSpec: {
-        width: 200,
-    },
+            borderRadius: 1,
+            borderBottomWidth: 2,
+            borderColor: '#B9B9B9',
+        },
 };
