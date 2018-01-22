@@ -66,7 +66,6 @@ export default class ChimeneyType extends Component {
             <Col md={12}>
                 <div>
                     {this.listItems()}
-
                     <div>
                         <p>SKORSTENSTYP</p>
                         <p>{this.state.choice}</p>

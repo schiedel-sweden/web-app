@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col} from 'reactstrap';
-import './Border.css';
+import '../../styles/Border.css';
 
 export default class Material extends Component {
     /**
