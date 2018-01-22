@@ -9,6 +9,76 @@ import PricePage from '../PricePage/PricePage';
 import OrderPage from '../Order/OrderPage';
 
 export default class Tillbud extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            chimneyTypeState: this.props.propState.chimneyTypeState,
+            houseTypeState: this.props.propState.houseTypeState,
+
+            chimneyState: this.props.propState.chimneyState,
+            customerDataState: this.props.propState.customerDataState,
+            pricePageState: this.props.propState.pricePageState,
+            orderPageState: this.props.propState.orderPageState,
+
+        }
+    }
+    chimneyTypeCallback = async (state) => {
+        await this.setState({
+            chimneyTypeState: state,
+        });
+        await this.setState({
+            pricePageState: {
+                pipe: state.choice,
+            },
+        });
+        this.callback();
+    }
+    houseTypeCallback = async (state) => {
+        await this.setState({
+            houseTypeState: state,
+        });
+        this.callback();
+    }
+    chimneyCallback = async (state) => {
+        await this.setState({
+            chimneyState: state,
+        });
+        this.callback();
+    }
+    customerDataCallback = async (state) => {
+        await this.setState({
+            customerDataState: state,
+        });
+        this.callback();
+    }
+    pricePageCallback = async (state) => {
+        await this.setState({
+            pricePageState: state,
+        });
+        await this.setState({
+            orderPageState: {
+                rowItems: state.rowItems,
+            }
+        });
+        this.callback();
+    }
+    orderPageCallback = async (state) => {
+        await this.setState({
+            orderPageState: state,
+        });
+        await this.setState({
+            pricePageState: {
+                rowItems: state.rowItems,
+            }
+        });
+        this.callback();
+    }
+    callback = () => {
+        this.props.parentCallback(this.state);
+    }
+
     render() {
         return (
             <div>
@@ -16,18 +86,36 @@ export default class Tillbud extends Component {
                     <TabList>
                         <Tab>Type Skorsten</Tab>
                         <Tab>Type Hus</Tab>
-                        <Tab>Skorstein</Tab>
-                        <Tab>Kundedata</Tab>
-                        <Tab>Tillbud</Tab>
-                        <Tab>Bestilling</Tab>
+                        <Tab>Skorsten</Tab>
+                        <Tab>Kundupgifter</Tab>
+                        <Tab>Prisförslag</Tab>
+                        <Tab>Beställing</Tab>
                     </TabList>
-                    
-                    <TabPanel><ChimneyType /></TabPanel>
-                    <TabPanel><HouseType /></TabPanel>
-                    <TabPanel><Chimney /></TabPanel>
-                    <TabPanel><CustomerData /></TabPanel>
-                    <TabPanel><PricePage /></TabPanel>
-                    <TabPanel><OrderPage /></TabPanel>
+
+                    <TabPanel><ChimneyType
+                                propState={this.state.chimneyTypeState}
+                                parentCallback={this.chimneyTypeCallback} />
+                    </TabPanel>
+                    <TabPanel><HouseType
+                                propState={this.state.houseTypeState}
+                                parentCallback={this.houseTypeCallback} />
+                    </TabPanel>
+                    <TabPanel><Chimney
+                                propState={this.state.chimneyState}
+                                parentCallback={this.chimneyCallback} />
+                    </TabPanel>
+                    <TabPanel><CustomerData
+                                propState={this.state.customerDataState}
+                                parentCallback={this.customerDataCallback}/>
+                    </TabPanel>
+                    <TabPanel><PricePage
+                                propState={this.state.pricePageState}
+                                parentCallback={this.pricePageCallback} />
+                    </TabPanel>
+                    <TabPanel><OrderPage
+                                propState={this.state.orderPageState}
+                                parentCallback={this.orderPageCallback} />
+                    </TabPanel>
 
 
                 </Tabs>
