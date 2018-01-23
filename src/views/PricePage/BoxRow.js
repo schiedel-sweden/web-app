@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Row} from 'reactstrap';
 
 import GridBoxInc from './GridBoxInc';
 import GridBox from './GridBox';
@@ -66,7 +67,7 @@ export default class BoxRow extends Component {
 
     render() {
         return (
-            <div style={{flex:1, flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Row>
                 {/* text should come from the serial number of the chosen item*/}
                 <div style={{flex: 0.18}}>
                     <GridBox
@@ -100,7 +101,7 @@ export default class BoxRow extends Component {
                     <GridBoxInc
                         number={this.state.rabatt} />
                 </div>
-            </div>
+            </Row>
 
         );
     }

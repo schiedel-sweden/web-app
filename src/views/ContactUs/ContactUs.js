@@ -40,8 +40,8 @@ export default class ContactUs extends Component {
                                 <input type="email" style={styles.formItem} placeholder={'Din e-mail'} value={this.state.email} onChange={async (email) => {await this.setState({email: email.target.value});this.callback();}} />
                             </FormGroup>
                             <FormGroup>
-                                <textarea style={styles.formTextInput} placeholder={'Ditt meddelande'} value={this.state.message} onChange={async (message) => {await this.setState({message: message.target.value});this.callback();}} />
                             </FormGroup>
+                            <textarea style={styles.formTextInput} placeholder={'Ditt meddelande'} value={this.state.message} onChange={async (message) => {await this.setState({message: message.target.value});this.callback();}} />
                         </Form>
                         </Col>
 

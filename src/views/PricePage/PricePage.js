@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Row} from 'reactstrap';
 
 import ObjectSummarizer from './ObjectSummarizer';
 
@@ -167,7 +168,7 @@ export default class PricePage extends Component {
                         </label>
                     </div>
 
-                    <div>
+                    <Row>
                         <div>
                             <h3>NOBBNUMMBER</h3>
                         </div>
@@ -186,7 +187,7 @@ export default class PricePage extends Component {
                         <div>
                             <h3>RABATT (%)</h3>
                         </div>
-                    </div>
+                    </Row>
 
                     <div>
                         <ObjectSummarizer

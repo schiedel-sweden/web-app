@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Row} from 'reactstrap';
 
 export default class GridBoxInc extends Component {
 
@@ -46,7 +47,7 @@ export default class GridBoxInc extends Component {
 
     render() {
         return (
-            <div style={styles.container}>
+            <Row style={styles.container}>
 
                 <div onClick={this.decrement}>
                     <p>-</p>
@@ -58,7 +59,7 @@ export default class GridBoxInc extends Component {
                     <p>+</p>
                 </div>
 
-            </div>
+            </Row>
         );
     }
 

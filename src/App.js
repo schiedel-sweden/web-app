@@ -4,6 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import logo from './images/Schiedel_logo.png';
 import './App.css';
 
+
 import Prisforslag from './views/Prisforslag/Prisforslag';
 import Produkter from './views/Produkter/Produkter';
 import Aterforsaljare from './views/Aterforsaljare/Aterforsaljare';
