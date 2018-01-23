@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 import ObjectSummarizer from './ObjectSummarizer';
-
+import {Row, Col, Table} from 'reactstrap';
+import '../../styles/Border.css';
 
 export default class PricePage extends Component {
 
@@ -102,148 +103,136 @@ export default class PricePage extends Component {
             <div>
                 <div>
                     <h3>Din pipe</h3>
-                    <p>{this.state.pipe}</p>
+                    <p className='borderBottom'>{this.state.pipe}</p>
                 </div>
                 <div>
                     <h3>Angitte mått</h3>
-                    <div>
-                        <label>
-                            Høyde gulv pipetopp
-                            <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
-                            mm
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            Höjd över tak (H2)
-                            <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {this.setState({heightAboveRoof: input.target.value});this.callback();}} />
-                            mm
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            Takvinkel
-                            <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {this.setState({roofAngle: input.target.value});this.callback();}} />
-                            grader
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            Total høyde
-                            <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {this.setState({totalHeight: input.target.value});this.callback();}} />
-                            mm
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            Ytterelement
-                            <input value={this.state.ytterelement} placeholder={0} type="number" onChange={async (input) => {this.setState({ytterelement: input.target.value});this.callback();}} />
-                            mm
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            Forningsrør
-                            <input value={this.state.forningsror} placeholder={0} type="number" onChange={async (input) => {this.setState({forningsror: input.target.value});this.callback();}} />
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            Utsparningsmål
-                            <input value={this.state.utsparningsmal} placeholder={0} type="number" onChange={async (input) => {this.setState({utsparningsmal: input.target.value});this.callback();}} />
-                        </label>
-                    </div>
-
-                    <div>
+                    <Row>
+                        <Col md={5}>
+                            <label className='borderBottom'>
+                                Høyde gulv pipetopp
+                                <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
+                                mm
+                            </label>
+                        </Col>
+                        <Col md={{offset: 1, size: 5 }}>
+                            <label className='borderBottom'>
+                                Höjd över tak (H2)
+                                <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {this.setState({heightAboveRoof: input.target.value});this.callback();}} />
+                                mm
+                            </label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={5}>
+                            <label className='borderBottom'>
+                                Takvinkel
+                                <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {this.setState({roofAngle: input.target.value});this.callback();}} />
+                                grader
+                            </label>
+                        </Col>
+                        <Col md={{ offset: 1, size: 5 }}>
+                            <label className='borderBottom'>
+                                Total høyde
+                                <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {this.setState({totalHeight: input.target.value});this.callback();}} />
+                                mm
+                            </label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={5}>
+                            <label className='borderBottom'>
+                                Ytterelement
+                                <input value={this.state.ytterelement} placeholder={0} type="number" onChange={async (input) => {this.setState({ytterelement: input.target.value});this.callback();}} />
+                                mm
+                            </label>
+                        </Col>
+                        <Col md={{ offset: 1, size: 5 }}>
+                            <label className='borderBottom'>
+                                Forningsrør
+                                <input value={this.state.forningsror} placeholder={0} type="number" onChange={async (input) => {this.setState({forningsror: input.target.value});this.callback();}} />
+                            </label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={5}>
+                            <label className='borderBottom'>
+                                Utsparningsmål
+                                <input value={this.state.utsparningsmal} placeholder={0} type="number" onChange={async (input) => {this.setState({utsparningsmal: input.target.value});this.callback();}} />
+                                cm
+                            </label>
+                        </Col>
+                        <Col md={{ offset: 1, size: 5 }}>
+                        </Col>
+                    </Row>
+                    <div className='borderBottom'>
                         <label>
                             Andre
                             <input value={this.state.andre} type="text" onChange={async (input) => {this.setState({andre: input.target.value});this.callback();}} />
                         </label>
                     </div>
-
-                    <div>
-                        <div>
-                            <h3>NOBBNUMMBER</h3>
-                        </div>
-                        <div>
-                            <h3>BESKRIVELSE</h3>
-                        </div>
-                        <div>
-                            <h3>ANTALL</h3>
-                        </div>
-                        <div>
-                            <h3>PRIS</h3>
-                        </div>
-                        <div>
-                            <h3>SUM</h3>
-                        </div>
-                        <div>
-                            <h3>RABATT (%)</h3>
-                        </div>
-                    </div>
-
-                    <div>
-                        <ObjectSummarizer
-                            propState={this.state}
-                            parentCallback={this.sendCallback}/>
-
-                    </div>
-
-                    <div>
-                        <input value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
-                        <input value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
-                    </div>
-
-                    <div>
-                        <div>
-                            <label>
+                    <ObjectSummarizer
+                        propState={this.state}
+                        parentCallback={this.sendCallback}/>
+                    <Row style={{paddingBottom: 10,}}>
+                        <Col md={{size: 4}}>
+                            <input value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
+                        </Col>
+                        <Col md={{ offset: 1, size: 4}}>
+                            <input value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
+                        </Col>
+                        <Col md={1}>
+                            <img style={styles.image} src={require('../../images/icons/round-arrow.png')} alt='refreshing' />
+                        </Col>
+                        <Col md={1}>
+                            <img style={styles.image} src={require('../../images/add.png')} alt='refreshing' />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={5}>
+                            <label className='borderBottom'>
                                 Netto
                                 {this.state.nettoSum}
                                 kr
                             </label>
-                        </div>
-
-                        <div>
-                            <label>
+                        </Col>
+                        <Col md={{ offset: 1, size: 5 }}>
+                            <label className='borderBottom'>
                                 Moms (25%)
                                 {this.state.moms}
                                 kr
                             </label>
-                        </div>
-
-                        <div>
-                            <label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={5}>
+                            <label className='borderBottom'>
                                 Sum
                                 {this.state.totalSum}
                                 kr
                             </label>
-                        </div>
-
-                    </div>
-
-
-                    <div>
-                        <label>
-                            <input type="checkbox" defaultChecked={this.state.tillbud} onChange={this.tillbud} />
-                            Tillbud
-                        </label>
-
-                        <label>
-                            <input type="checkbox" defaultChecked={this.state.ordrebekreftelse} onChange={this.ordrebekreftelse} />
-                            Ordrebekreftelse
-                        </label>
-
-                        <label>
-                            <input type="checkbox" defaultChecked={this.state.visKunTotalsum} onChange={this.visKunTotalsum} />
-                            Vis kun totalsum
-                        </label>
-                    </div>
+                        </Col>
+                    </Row>
+                    <Row className='borderBottom'>
+                        <Col md={4}>
+                            <label>
+                                <input type="checkbox" defaultChecked={this.state.tillbud} onChange={this.tillbud} />
+                                Tillbud
+                            </label>
+                        </Col>
+                        <Col md={4}>
+                            <label>
+                                <input type="checkbox" defaultChecked={this.state.ordrebekreftelse} onChange={this.ordrebekreftelse} />
+                                Ordrebekreftelse
+                            </label>
+                        </Col>
+                        <Col md={4}>
+                            <label>
+                                <input type="checkbox" defaultChecked={this.state.visKunTotalsum} onChange={this.visKunTotalsum} />
+                                Vis kun totalsum
+                            </label>
+                        </Col>
+                    </Row>
 
                     <div>
                         <label>
@@ -252,27 +241,30 @@ export default class PricePage extends Component {
                         </label>
                     </div>
 
-
+                    <Row>
+                        <Col md={{size: 5}}>
                     <div>
                         <div>
-                            <img src={require('../../images/save.png')} alt='save order' />
+                            <img style={styles.image} src={require('../../images/save.png')} alt='save order' />
                             <p> Lagre tillbud </p>
                         </div>
                         <div>
                             <p>Save as PDF</p>
                         </div>
                     </div>
-
+                        </Col>
+                        <Col md={{ offset: 1, size: 5 }}>
                     <div>
                         <div>
-                            <img src={require('../../images/printer.png')} alt='Print' />
+                            <img style={styles.image} src={require('../../images/printer.png')} alt='Print' />
                             <p> Skriv ut </p>
                         </div>
                         <div>
                             <p>Send PDF med e-post</p>
                         </div>
                     </div>
-
+                        </Col>
+                    </Row>
 
 
                 </div>
@@ -281,6 +273,15 @@ export default class PricePage extends Component {
             </div>
 
         );
+    }
+}
 
+const styles = {
+    image: {
+        "max-width": "100%",
+        "height": "auto",
+        "display": "block",
+        "cursor": "pointer",
+        "cursor": "hand",
     }
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {Row, Col, Table} from 'reactstrap';
 import ObjectSummarizer from '../PricePage/ObjectSummarizer';
 
 export default class OrderPage extends Component {
@@ -79,92 +79,80 @@ export default class OrderPage extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <div>
-                        <h3>NOBBNUMMBER</h3>
-                    </div>
-                    <div>
-                        <h3>BESKRIVELSE</h3>
-                    </div>
-                    <div>
-                        <h3>ANTALL</h3>
-                    </div>
-                    <div>
-                        <h3>PRIS</h3>
-                    </div>
-                    <div>
-                        <h3>SUM</h3>
-                    </div>
-                    <div>
-                        <h3>RABATT (%)</h3>
-                    </div>
-                </div>
-
-                <div>
-                    <ObjectSummarizer
-                        propState={this.state}
-                        parentCallback={this.sendCallback}/>
-
-                </div>
-
-                <div>
-                    <div>
-                        <p>Netto</p>
-                        <p>{this.state.nettoSum}</p>
-                        <p>kr</p>
-                    </div>
-
-                    <div>
-                        <p>Moms (25%)</p>
-                        <p>{this.state.moms}</p>
-                        <p>kr</p>
-                    </div>
-
-                    <div>
-                        <p>Sum</p>
-                        <p>{this.state.totalSum}</p>
-                        <p>kr</p>
-                    </div>
-
-                </div>
-
-                <div>
-                    <div>
+                <ObjectSummarizer
+                    propState={this.state}
+                    parentCallback={this.sendCallback}/>
+                <Row style={{paddingBottom: 10,}}>
+                    <Col md={{size: 4}}>
+                        <input value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
+                    </Col>
+                    <Col md={{ offset: 1, size: 4}}>
+                        <input value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
+                    </Col>
+                    <Col md={1}>
+                        <img style={styles.image} src={require('../../images/icons/round-arrow.png')} alt='refreshing' />
+                    </Col>
+                    <Col md={1}>
+                        <img style={styles.image} src={require('../../images/add.png')} alt='refreshing' />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={5}>
+                        <label className='borderBottom'>
+                            Netto
+                            {this.state.nettoSum}
+                            kr
+                        </label>
+                    </Col>
+                    <Col md={{ offset: 1, size: 5 }}>
+                        <label className='borderBottom'>
+                            Moms (25%)
+                            {this.state.moms}
+                            kr
+                        </label>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={5}>
+                        <label className='borderBottom'>
+                            Sum
+                            {this.state.totalSum}
+                            kr
+                        </label>
+                    </Col>
+                </Row>
+                <Row className='borderBottom'>
+                    <Col md={4}>
                         <label>
                             <input type="checkbox" defaultChecked={this.state.kranbil} onChange={this.kranbil} />
                             Leveres med kranbil
                         </label>
-                    </div>
-
-                    <div>
+                    </Col>
+                    <Col md={4}>
                         <label>
                             <input type="checkbox" defaultChecked={this.state.plukket} onChange={this.plukket} />
                             Plukket
                         </label>
-                    </div>
-
-                    <div>
+                    </Col>
+                    <Col md={4}>
                         <label>
                             <input type="checkbox" defaultChecked={this.state.kjorer} onChange={this.kjorer} />
                             Kjører
                         </label>
-                    </div>
-
-                </div>
-
-
-                <div>
-                    <label>
-                        DATO:
-                    </label>
-                </div>
-
-                <div>
-                    <label>
-                        Ønsket leveringsdato:
-                    </label>
-                </div>
-
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={5}>
+                        <label className='borderBottom'>
+                            DATO:
+                        </label>
+                    </Col>
+                    <Col md={{ offset: 1, size: 5 }}>
+                        <label className='borderBottom'>
+                            Ønsket leveringsdato:
+                        </label>
+                    </Col>
+                </Row>
                 <div>
                     <label>
                         beskjed
@@ -172,30 +160,45 @@ export default class OrderPage extends Component {
                     </label>
                 </div>
 
-                <div>
-                    <div>
-                        <img src={require('../../images/save.png')} alt='save order' />
-                        <p> Lagre tillbud </p>
-                    </div>
-                    <div>
-                        <p>Save as PDF</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <img src={require('../../images/printer.png')} alt='Print' />
-                        <p> Skriv ut </p>
-                    </div>
-                    <div>
-                        <p>Send PDF med e-post</p>
-                    </div>
-                </div>
+                <Row>
+                    <Col md={{size: 5}}>
+                        <div>
+                            <div>
+                                <img style={styles.image} src={require('../../images/save.png')} alt='save order' />
+                                <p> Lagre tillbud </p>
+                            </div>
+                            <div>
+                                <p>Save as PDF</p>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={{ offset: 1, size: 5 }}>
+                        <div>
+                            <div>
+                                <img style={styles.image} src={require('../../images/printer.png')} alt='Print' />
+                                <p> Skriv ut </p>
+                            </div>
+                            <div>
+                                <p>Send PDF med e-post</p>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
 
 
             </div>
 
         );
 
+    }
+}
+
+const styles = {
+    image: {
+        "max-width": "100%",
+        "height": "auto",
+        "display": "block",
+        "cursor": "pointer",
+        "cursor": "hand",
     }
 }

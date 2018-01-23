@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Table } from 'reactstrap';
 
 import GridBoxInc from './GridBoxInc';
 import GridBox from './GridBox';
@@ -66,41 +67,41 @@ export default class BoxRow extends Component {
 
     render() {
         return (
-            <div style={{flex:1, flexDirection: 'row', justifyContent: 'space-between'}}>
+            <tr style={{flex:1, flexDirection: 'row', justifyContent: 'space-between'}}>
                 {/* text should come from the serial number of the chosen item*/}
-                <div style={{flex: 0.18}}>
+                <td style={{flex: 0.18}}>
                     <GridBox
                         text={this.state.number} />
-                </div>
+                </td>
                 {/* description of item*/}
-                <div style={{flex: 0.25}}>
+                <td style={{flex: 0.25}}>
                     <GridBox
                         text={this.state.description} />
-                </div>
+                </td>
                 {/* number should come from how many of that item were chosen*/}
-                <div style={{flex: 0.13}}>
+                <td style={{flex: 0.13}}>
                     <GridBoxInc
                         number={this.state.antal}
                         onChange={this.calcSum}
                         parentCallback={this.callback} />
-                </div>
+                </td>
                 {/* price should come from somewhere, no idea*/}
-                <div style={{flex: 0.13}}>
+                <td style={{flex: 0.13}}>
                     <GridBox
                         text={this.state.pris}
                         onChangeText={this.onChangeText} />
-                </div>
+                </td>
                 {/* sum should be number multiplied with the price, pretty obvious*/}
-                <div style={{flex: 0.13}}>
+                <td style={{flex: 0.13}}>
                     <GridBox
                         text={this.state.sum} />
-                </div>
+                </td>
                 {/* rabatt should only be able to be modified by one type of user I assume*/}
-                <div style={{flex: 0.13}}>
+                <td style={{flex: 0.13}}>
                     <GridBoxInc
                         number={this.state.rabatt} />
-                </div>
-            </div>
+                </td>
+            </tr>
 
         );
     }
