@@ -163,23 +163,23 @@ export default class OrderPage extends Component {
                 <Row>
                     <Col md={{size: 5}}>
                         <div>
-                            <div>
+                            <div style={styles.receiptButton}>
                                 <img style={styles.image} src={require('../../images/save.png')} alt='save order' />
-                                <p> Lagre tillbud </p>
+                                <p style={{fontSize: 24, 'text-align': 'center',}}> Lagre tillbud </p>
                             </div>
-                            <div>
-                                <p>Save as PDF</p>
+                            <div style={styles.receiptButton}>
+                                <p style={{fontSize: 24, 'text-align': 'center',}}>Save as PDF</p>
                             </div>
                         </div>
                     </Col>
-                    <Col md={{ offset: 1, size: 5 }}>
+                    <Col md={{ offset: 2, size: 5 }}>
                         <div>
-                            <div>
+                            <div style={styles.receiptButton}>
                                 <img style={styles.image} src={require('../../images/printer.png')} alt='Print' />
-                                <p> Skriv ut </p>
+                                <p style={{fontSize: 24, 'text-align': 'center',}}> Skriv ut </p>
                             </div>
-                            <div>
-                                <p>Send PDF med e-post</p>
+                            <div style={styles.receiptButton}>
+                                <p style={{fontSize: 24, 'text-align': 'center',}}>Send PDF med e-post</p>
                             </div>
                         </div>
                     </Col>
@@ -193,12 +193,42 @@ export default class OrderPage extends Component {
     }
 }
 
+
 const styles = {
     image: {
-        "max-width": "100%",
-        "height": "auto",
-        "display": "block",
-        "cursor": "pointer",
-        "cursor": "hand",
-    }
+        'max-width': '30%',
+        'height': 'auto',
+        'display': 'block',
+        'cursor': 'pointer',
+        'cursor': 'hand',
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+        'padding-bottom': '1%',
+    },
+    icons: {
+        height: 21,
+        width: 21,
+        'margin-left': '5px',
+        'margin-top': '5px',
+    },
+    discountButton: {
+        'border-style': 'solid',
+        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: '#333333',
+        backgroundColor: '#F9CE3C',
+        height: 35,
+        width: 35,
+    },
+    receiptButton: {
+        'max-width': '100%',
+        'height': 'auto',
+        'padding-top': '6%',
+        backgroundColor: '#F9CE3C',
+        'border-style': 'solid',
+        borderRadius: 10,
+        borderColor: '#333333',
+        borderWidth: 4,
+        'margin-top': '15px',
+    },
 }
