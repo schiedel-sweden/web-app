@@ -108,80 +108,101 @@ export default class PricePage extends Component {
                 <div>
                     <h3>Angitte mått</h3>
                     <Row>
-                        <Col md={5}>
+                        <Col md={5.5}>
                             <label className='borderBottom'>
-                                Høyde gulv pipetopp
-                                <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
-                                mm
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Høyde gulv pipetopp</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.gulvPipetopp} placeholder={0} type="number" onChange={async (input) => {this.setState({gulvPipetopp: input.target.value});this.callback();}}  />
+                                    <label style={{'padding-left': '5px'}}>mm</label>
+                                </div>
                             </label>
                         </Col>
-                        <Col md={{offset: 1, size: 5 }}>
+                        <Col md={{offset: 1, size: 5.5 }}>
                             <label className='borderBottom'>
-                                Höjd över tak (H2)
-                                <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {this.setState({heightAboveRoof: input.target.value});this.callback();}} />
-                                mm
-                            </label>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={5}>
-                            <label className='borderBottom'>
-                                Takvinkel
-                                <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {this.setState({roofAngle: input.target.value});this.callback();}} />
-                                grader
-                            </label>
-                        </Col>
-                        <Col md={{ offset: 1, size: 5 }}>
-                            <label className='borderBottom'>
-                                Total høyde
-                                <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {this.setState({totalHeight: input.target.value});this.callback();}} />
-                                mm
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Höjd över tak (H2)</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {this.setState({heightAboveRoof: input.target.value});this.callback();}} />
+                                    <label style={{'padding-left': '5px'}}>mm</label>
+                                </div>
                             </label>
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={5}>
+                        <Col md={5.5}>
                             <label className='borderBottom'>
-                                Ytterelement
-                                <input value={this.state.ytterelement} placeholder={0} type="number" onChange={async (input) => {this.setState({ytterelement: input.target.value});this.callback();}} />
-                                mm
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Takvinkel</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {this.setState({roofAngle: input.target.value});this.callback();}} />
+                                    <label style={{'padding-left': '5px'}}>°</label>
+                                </div>
                             </label>
                         </Col>
-                        <Col md={{ offset: 1, size: 5 }}>
+                        <Col md={{offset: 1, size: 5.5 }}>
                             <label className='borderBottom'>
-                                Forningsrør
-                                <input value={this.state.forningsror} placeholder={0} type="number" onChange={async (input) => {this.setState({forningsror: input.target.value});this.callback();}} />
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Total høyde</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {this.setState({totalHeight: input.target.value});this.callback();}} />
+                                    <label style={{'padding-left': '5px'}}>m</label>
+                                </div>
                             </label>
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={5}>
+                        <Col md={5.5}>
                             <label className='borderBottom'>
-                                Utsparningsmål
-                                <input value={this.state.utsparningsmal} placeholder={0} type="number" onChange={async (input) => {this.setState({utsparningsmal: input.target.value});this.callback();}} />
-                                cm
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Ytterelement</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.ytterelement} placeholder={0} type="number" onChange={async (input) => {this.setState({ytterelement: input.target.value});this.callback();}} />
+                                    <label style={{'padding-left': '5px'}}>cm</label>
+                                </div>
                             </label>
                         </Col>
-                        <Col md={{ offset: 1, size: 5 }}>
+                        <Col md={{offset: 1, size: 5.5 }}>
+                            <label className='borderBottom'>
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Forningsrør</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.forningsror} placeholder={0} type="number" onChange={async (input) => {this.setState({forningsror: input.target.value});this.callback();}} />
+                                    <label style={{'padding-left': '5px'}}></label>
+                                </div>
+                            </label>
                         </Col>
                     </Row>
-                    <div className='borderBottom'>
-                        <label>
-                            Andre
-                            <input value={this.state.andre} type="text" onChange={async (input) => {this.setState({andre: input.target.value});this.callback();}} />
-                        </label>
-                    </div>
+                    <Row>
+                        <Col md={5.5}>
+                            <label className='borderBottom'>
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>Utsparningsmål</label>
+                                <div style={{'float': 'right',}}>
+                                    <input value={this.state.utsparningsmal} placeholder={0} type="number" onChange={async (input) => {this.setState({utsparningsmal: input.target.value});this.callback();}} />
+                                    <label style={{'padding-left': '5px'}}>cm</label>
+                                </div>
+                            </label>
+                        </Col>
+                        <Col md={{ offset: 1, size: 5.5 }}>
+                        </Col>
+                    </Row>
+                    <Row className='borderBottom'>
+                        <Col md={2}>
+                            <label style={{'padding-right': '10px',}}>Andre</label>
+                        </Col>
+                        <Col md={10}>
+                            <textarea style={{'width': '100%', 'float': 'right', 'height': '30px', 'resize': 'none'}}
+                                      value={this.state.andre}
+                                      type="text"
+                                      onChange={async (input) => {this.setState({andre: input.target.value});this.callback();}}>
+                            </textarea>
+                        </Col>
+                    </Row>
                     <ObjectSummarizer
                         propState={this.state}
                         parentCallback={this.sendCallback}/>
                     <Row style={{paddingBottom: 10,}}>
                         <Col md={{size: 4}}>
-                            <input value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
+                            <input style={{'width': '100%',}} value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
                         </Col>
                         <Col md={{ offset: 1, size: 4}}>
-                            <input value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
+                            <input style={{'width': '100%',}} value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
                         </Col>
-                        <Col md={1}>
+                        <Col md={{offset: 1, size: 1}}>
                             <div style={styles.discountButton}>
                                 <img style={styles.icons} src={require('../../images/icons/round-arrow.png')} alt='refreshing' />
                             </div>
@@ -193,28 +214,36 @@ export default class PricePage extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={5}>
+                        <Col md={5.5}>
                             <label className='borderBottom'>
-                                Netto
-                                {this.state.nettoSum}
-                                kr
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>NETTO</label>
+                                <div style={{'float': 'right',}}>
+                                    <label style={{'padding-right': '5px'}}> {this.state.nettoSum} </label>
+                                    <label style={{'padding-left': '5px'}}>kr</label>
+                                </div>
                             </label>
                         </Col>
-                        <Col md={{ offset: 1, size: 5 }}>
+                        <Col md={{offset: 1, size: 5.5 }}>
                             <label className='borderBottom'>
-                                Moms (25%)
-                                {this.state.moms}
-                                kr
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>MOMS (25%)</label>
+                                <div style={{'float': 'right',}}>
+                                    <label style={{'padding-right': '5px'}}> {this.state.moms} </label>
+                                    <label style={{'padding-left': '5px'}}>kr</label>
+                                </div>
                             </label>
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={5}>
+                        <Col md={5.5}>
                             <label className='borderBottom'>
-                                Sum
-                                {this.state.totalSum}
-                                kr
+                                <label style={{'width': '190px', 'padding-right': '10px',}}>SUM</label>
+                                <div style={{'float': 'right',}}>
+                                    <label style={{'padding-right': '5px'}}> {this.state.totalSum} </label>
+                                    <label style={{'padding-left': '5px'}}>kr</label>
+                                </div>
                             </label>
+                        </Col>
+                        <Col md={{offset: 1, size: 5.5 }}>
                         </Col>
                     </Row>
                     <Row className='borderBottom'>
@@ -237,16 +266,20 @@ export default class PricePage extends Component {
                             </label>
                         </Col>
                     </Row>
-
-                    <div>
-                        <label>
-                            beskjed
-                            <input type="text" onChange={async (input) => {this.setState({beskjed: input.target.value});this.callback();}} />
-                        </label>
-                    </div>
-
+                    <Row className='borderBottom'>
+                        <Col md={2}>
+                            <label style={{'padding-right': '10px',}}>BESKJED</label>
+                        </Col>
+                        <Col md={10}>
+                            <textarea style={{'width': '100%', 'float': 'right', 'height': '30px', 'resize': 'none'}}
+                                      value={this.state.andre}
+                                      type="text"
+                                      onChange={async (input) => {this.setState({beskjed: input.target.value});this.callback();}}>
+                            </textarea>
+                        </Col>
+                    </Row>
                     <Row>
-                        <Col md={{size: 5}}>
+                        <Col md={{size: 5.5}}>
                             <div>
                                 <div style={styles.receiptButton}>
                                     <img style={styles.image} src={require('../../images/save.png')} alt='save order' />
@@ -257,7 +290,7 @@ export default class PricePage extends Component {
                                 </div>
                             </div>
                         </Col>
-                        <Col md={{ offset: 2, size: 5 }}>
+                        <Col md={{ offset: 1, size: 5.5 }}>
                             <div>
                                 <div style={styles.receiptButton}>
                                     <img style={styles.image} src={require('../../images/printer.png')} alt='Print' />

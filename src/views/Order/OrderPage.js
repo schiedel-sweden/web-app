@@ -84,41 +84,53 @@ export default class OrderPage extends Component {
                     parentCallback={this.sendCallback}/>
                 <Row style={{paddingBottom: 10,}}>
                     <Col md={{size: 4}}>
-                        <input value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
+                        <input style={{'width': '100%',}} value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
                     </Col>
                     <Col md={{ offset: 1, size: 4}}>
-                        <input value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
+                        <input style={{'width': '100%',}} value={this.state.frakt} type="number" placeholder={'Frakt (kr)'} onChange={async (input) => {this.setState({frakt: input.target.value});this.callback();}} />
+                    </Col>
+                    <Col md={{offset: 1, size: 1}}>
+                        <div style={styles.discountButton}>
+                            <img style={styles.icons} src={require('../../images/icons/round-arrow.png')} alt='refreshing' />
+                        </div>
                     </Col>
                     <Col md={1}>
-                        <img style={styles.image} src={require('../../images/icons/round-arrow.png')} alt='refreshing' />
-                    </Col>
-                    <Col md={1}>
-                        <img style={styles.image} src={require('../../images/add.png')} alt='refreshing' />
+                        <div style={styles.discountButton}>
+                            <img style={styles.icons} src={require('../../images/add.png')} alt='refreshing' />
+                        </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={5}>
+                    <Col md={5.5}>
                         <label className='borderBottom'>
-                            Netto
-                            {this.state.nettoSum}
-                            kr
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>NETTO</label>
+                            <div style={{'float': 'right',}}>
+                                <label style={{'padding-right': '5px'}}> {this.state.nettoSum} </label>
+                                <label style={{'padding-left': '5px'}}>kr</label>
+                            </div>
                         </label>
                     </Col>
-                    <Col md={{ offset: 1, size: 5 }}>
+                    <Col md={{offset: 1, size: 5.5 }}>
                         <label className='borderBottom'>
-                            Moms (25%)
-                            {this.state.moms}
-                            kr
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>MOMS (25%)</label>
+                            <div style={{'float': 'right',}}>
+                                <label style={{'padding-right': '5px'}}> {this.state.moms} </label>
+                                <label style={{'padding-left': '5px'}}>kr</label>
+                            </div>
                         </label>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={5}>
+                    <Col md={5.5}>
                         <label className='borderBottom'>
-                            Sum
-                            {this.state.totalSum}
-                            kr
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>SUM</label>
+                            <div style={{'float': 'right',}}>
+                                <label style={{'padding-right': '5px'}}> {this.state.totalSum} </label>
+                                <label style={{'padding-left': '5px'}}>kr</label>
+                            </div>
                         </label>
+                    </Col>
+                    <Col md={{offset: 1, size: 5.5 }}>
                     </Col>
                 </Row>
                 <Row className='borderBottom'>
@@ -142,26 +154,39 @@ export default class OrderPage extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={5}>
+                    <Col md={5.5}>
                         <label className='borderBottom'>
-                            DATO:
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>DATO:</label>
+                            <div style={{'float': 'right',}}>
+                                <label style={{'padding-right': '5px'}}></label>
+                                <label style={{'padding-left': '5px'}}></label>
+                            </div>
                         </label>
                     </Col>
-                    <Col md={{ offset: 1, size: 5 }}>
+                    <Col md={{offset: 1, size: 5.5 }}>
                         <label className='borderBottom'>
-                            Ønsket leveringsdato:
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>Ønsket leveringsdato:</label>
+                            <div style={{'float': 'right',}}>
+                                <label style={{'padding-right': '5px'}}></label>
+                                <label style={{'padding-left': '5px'}}></label>
+                            </div>
                         </label>
                     </Col>
                 </Row>
-                <div>
-                    <label>
-                        beskjed
-                        <input type="text" onChange={async (input) => {await this.setState({beskjed: input.target.value});this.callback();}} />
-                    </label>
-                </div>
-
+                <Row className='borderBottom'>
+                    <Col md={2}>
+                        <label style={{'padding-right': '10px',}}>BESKJED</label>
+                    </Col>
+                    <Col md={10}>
+                        <textarea style={{'width': '100%', 'float': 'right', 'height': '30px', 'resize': 'none'}}
+                                  value={this.state.andre}
+                                  type="text"
+                                  onChange={async (input) => {this.setState({beskjed: input.target.value});this.callback();}}>
+                        </textarea>
+                    </Col>
+                </Row>
                 <Row>
-                    <Col md={{size: 5}}>
+                    <Col md={{size: 5.5}}>
                         <div>
                             <div style={styles.receiptButton}>
                                 <img style={styles.image} src={require('../../images/save.png')} alt='save order' />
@@ -172,7 +197,7 @@ export default class OrderPage extends Component {
                             </div>
                         </div>
                     </Col>
-                    <Col md={{ offset: 2, size: 5 }}>
+                    <Col md={{ offset: 1, size: 5.5 }}>
                         <div>
                             <div style={styles.receiptButton}>
                                 <img style={styles.image} src={require('../../images/printer.png')} alt='Print' />
