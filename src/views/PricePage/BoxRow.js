@@ -41,8 +41,10 @@ export default class BoxRow extends Component {
     async calcSum() {
         let number = this.state.antal;
         let price = this.state.pris;
+        // set rebate for all inidividual items
+        let rabatt = this.state.rabatt;
 
-        let totsum = number * price;
+        let totsum = number * price * ((100 - rabatt) / 100.0);
         await this.setState({
             sum: totsum,
         });
@@ -52,6 +54,13 @@ export default class BoxRow extends Component {
     }
 
 
+    rebateCallback = async (state) => {
+        await this.setState({
+            rabatt: state,
+        });
+        this.calcSum();
+    }
+
     callback = async (state) => {
         await this.setState({
             antal: state
@@ -59,7 +68,7 @@ export default class BoxRow extends Component {
     }
 
     callMe = () => {
-        this.props.parentCallback(this.state.sum, this.state.antal, this.state.number);
+        this.props.parentCallback(this.state.sum, this.state.antal, this.state.number, this.state.rabatt);
     }
 
 
@@ -99,7 +108,8 @@ export default class BoxRow extends Component {
                 {/* rabatt should only be able to be modified by one type of user I assume*/}
                 <div style={{flex: 0.13}}>
                     <GridBoxInc
-                        number={this.state.rabatt} />
+                        number={this.state.rabatt}
+                        parentCallback={this.rebateCallback} />
                 </div>
             </Row>
 
