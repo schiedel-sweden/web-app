@@ -249,19 +249,19 @@ export default class PricePage extends Component {
                     <Row className='borderBottom'>
                         <Col md={4}>
                             <label>
-                                <input type="checkbox" defaultChecked={this.state.tillbud} onChange={this.tillbud} />
+                                <input type="checkbox" defaultChecked={this.state.tillbud} style={styles.checkbox} onChange={this.tillbud} />
                                 Tillbud
                             </label>
                         </Col>
                         <Col md={4}>
                             <label>
-                                <input type="checkbox" defaultChecked={this.state.ordrebekreftelse} onChange={this.ordrebekreftelse} />
+                                <input type="checkbox" defaultChecked={this.state.ordrebekreftelse} style={styles.checkbox} onChange={this.ordrebekreftelse} />
                                 Ordrebekreftelse
                             </label>
                         </Col>
                         <Col md={4}>
                             <label>
-                                <input type="checkbox" defaultChecked={this.state.visKunTotalsum} onChange={this.visKunTotalsum} />
+                                <input type="checkbox" defaultChecked={this.state.visKunTotalsum} style={styles.checkbox} onChange={this.visKunTotalsum} />
                                 Vis kun totalsum
                             </label>
                         </Col>
@@ -348,5 +348,8 @@ const styles = {
         borderColor: '#333333',
         borderWidth: 4,
         'margin-top': '15px',
+    },
+    checkbox: {
+        'margin-right': '5px',
     },
 }

@@ -30,72 +30,92 @@ export default class HouseType extends Component {
         return (
             <Col md={12}>
                 <Row>
-                    <div ><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} alt='house sketch'/></div>
+                    <div style={{'margin-left': 'auto', 'margin-right': 'auto',}}><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} alt='house sketch'/></div>
+                </Row>
+                <Row style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '180px', 'padding-right': '10px',}}>antal piper:</label>
+                            <div style={{'float': 'right',}}>
+                                <input value={this.state.antalPiper} placeholder={0} type="number" onChange={async (input) => {await this.setState({antalPiper: input.target.value}); this.callback();}}  />
+                            </div>
+                        </label>
+                    </Col>
+                    <Col md={{offset: 1, size: 5.5 }}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '180px', 'padding-right': '10px',}}>Höjd över tak (H2)</label>
+                            <div style={{'float': 'right',}}>
+                                <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {await this.setState({heightAboveRoof: input.target.value}); this.callback()}} />
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </div>
+                        </label>
+                    </Col>
+                </Row>
+                <Row style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '180px', 'padding-right': '10px',}}>Total Höjd (H1)</label>
+                            <div style={{'float': 'right',}}>
+                                <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {await this.setState({totalHeight: input.target.value}); this.callback()}} />
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </div>
+                        </label>
+                    </Col>
+                    <Col md={{offset: 1, size: 5.5 }}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '180px', 'padding-right': '10px',}}>Takvinkel (V)</label>
+                            <div style={{'float': 'right',}}>
+                                <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {await this.setState({roofAngle: input.target.value}); this.callback()}} />
+                                <label style={{'padding-left': '5px'}}>°</label>
+                            </div>
+                        </label>
+                    </Col>
                 </Row>
 
-                <Row>
-                    <Col md={6}>
-                        <label>
-                            antal piper:
-                            <input value={this.state.antalPiper} placeholder={0} type="number" onChange={async (input) => {await this.setState({antalPiper: input.target.value}); this.callback();}}  />
-                        </label>
-                    </Col>
-                    <Col md={6}>
-                        <label>
-                            Höjd över tak (H2)
-                            <input value={this.state.heightAboveRoof} placeholder={0} type="number" onChange={async (input) => {await this.setState({heightAboveRoof: input.target.value}); this.callback()}} />
-                            mm
-                        </label>
-                    </Col>
-
-                </Row>
-
-                <Row>
-                    <Col md={6}>
-                        <label>
-                            Total Höjd (H1)
-                            <input value={this.state.totalHeight} placeholder={0} type="number" onChange={async (input) => {await this.setState({totalHeight: input.target.value}); this.callback()}} />
-                            mm
-                        </label>
-                    </Col>
-                    <Col md={6}>
-                        <label>
-                            Takvinkel (V)
-                            <input value={this.state.roofAngle} placeholder={0} type="number" onChange={async (input) => {await this.setState({roofAngle: input.target.value}); this.callback()}} />
-                            grader
-                        </label>
-                    </Col>
-
-                </Row>
-
-                <Row>
+                <Row style={{'padding-top': '20px'}}>
                     <h2>Beräkna total höjd (H1) och höjd över taket (h2)</h2>
                 </Row>
 
-                <Row>
-                    <Col md={6}>
-                        <label>
-                            Höjd till mone (A4)
-                            <input value={this.state.tillMone} placeholder={0} type="number" onChange={async (input) => {await this.setState({tillMone: input.target.value}); this.callback()}} />
-                            mm
+                <Row style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '180px', 'padding-right': '10px',}}>Höjd till mone (A4)</label>
+                            <div style={{'float': 'right',}}>
+                                <input value={this.state.tillMone} placeholder={0} type="number" onChange={async (input) => {await this.setState({tillMone: input.target.value}); this.callback()}} />
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </div>
                         </label>
                     </Col>
-
-                    <Col md={6}>
-                        <label>
-                            Avstånd från mone
-                            <input value={this.state.franMone} placeholder={0} type="number" onChange={async (input) => { await this.setState({franMone: input.target.value}); this.callback()}} />
-                            mm
+                    <Col md={{offset: 1, size: 5.5 }}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '180px', 'padding-right': '10px',}}>Avstånd från mone</label>
+                            <div style={{'float': 'right',}}>
+                                <input value={this.state.franMone} placeholder={0} type="number" onChange={async (input) => { await this.setState({franMone: input.target.value}); this.callback()}} />
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </div>
                         </label>
                     </Col>
                 </Row>
 
-                <Row>
-                    <label>
-                        <button onClick={this.values} >Beräkna</button> {/* does nothing so far */}
-                        *some value*
-                        {this.state.calcValue} mm
-                    </label>
+                <Row style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
+                        <label style={{'width': '100%'}}>
+                            <button
+                                style={styles.submitButton}
+                                onClick={this.values} >
+                                Beräkna
+                            </button>
+                            <label style={{fontSize: 20, 'padding-right': '50px','padding-left': '50px'}}>
+                                =
+                            </label>
+                            <label className='borderBottom'>
+                                <label >*some value* {this.state.calcValue}</label>
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </label>
+                        </label>
+                    </Col>
+                    <Col md={{offset: 1, size: 5.5 }}>
+                    </Col>
                 </Row>
 
             </Col>
@@ -108,5 +128,14 @@ let styles = {
     houseImage: {
         width: 400,
         height: 300,
-    }
+    },
+    submitButton: {
+        'width': 'auto',
+        'height': 'auto',
+        backgroundColor: '#F9CE3C',
+        'border-style': 'solid',
+        borderRadius: 6,
+        borderColor: '#333333',
+        borderWidth: 2,
+    },
 }

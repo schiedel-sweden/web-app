@@ -136,19 +136,19 @@ export default class OrderPage extends Component {
                 <Row className='borderBottom'>
                     <Col md={4}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.kranbil} onChange={this.kranbil} />
+                            <input type="checkbox" defaultChecked={this.state.kranbil} style={styles.checkbox} onChange={this.kranbil} />
                             Leveres med kranbil
                         </label>
                     </Col>
                     <Col md={4}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.plukket} onChange={this.plukket} />
+                            <input type="checkbox" defaultChecked={this.state.plukket} style={styles.checkbox} onChange={this.plukket} />
                             Plukket
                         </label>
                     </Col>
                     <Col md={4}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.kjorer} onChange={this.kjorer} />
+                            <input type="checkbox" defaultChecked={this.state.kjorer} style={styles.checkbox} onChange={this.kjorer} />
                             Kjører
                         </label>
                     </Col>
@@ -255,5 +255,8 @@ const styles = {
         borderColor: '#333333',
         borderWidth: 4,
         'margin-top': '15px',
+    },
+    checkbox: {
+        'margin-right': '5px',
     },
 }
