@@ -1,4 +1,13 @@
 import React, {Component} from 'react';
+// https://github.com/Hacker0x01/react-datepicker
+// only works on the latest browsers
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
 import ObjectSummarizer from '../PricePage/ObjectSummarizer';
 
@@ -14,6 +23,7 @@ export default class OrderPage extends Component {
             kjorer: this.props.propState.kjorer,
 
             beskjed: this.props.propState.beskjed,
+            startDate: this.props.propState.startDate,
 
 
         }
@@ -72,6 +82,15 @@ export default class OrderPage extends Component {
         this.callback();
     }
 
+    // method that is run when changing date
+    handleChangeDate = async (date) => {
+        await this.setState({
+            startDate: date,
+        });
+        this.callback();
+    }
+
+    // runs the callback from the parent (Prisforslag.js)
     callback = () => {
         this.props.parentCallback(this.state);
     }
@@ -157,18 +176,24 @@ export default class OrderPage extends Component {
                     <label>
                         DATO:
                     </label>
+                    {moment().format('ll')}
                 </div>
 
                 <div>
                     <label>
                         Ønsket leveringsdato:
                     </label>
+                    <DatePicker
+                        selected={this.state.startDate}
+                        onChange={this.handleChangeDate}
+                        minDate={moment()}
+                        maxDate={moment().add(21, "days")} />
                 </div>
 
                 <div>
                     <label>
                         beskjed
-                        <input type="text" onChange={async (input) => {await this.setState({beskjed: input.target.value});this.callback();}} />
+                        <input type="text" value={this.state.beskjed} onChange={async (input) => {await this.setState({beskjed: input.target.value});this.callback();}} />
                     </label>
                 </div>
 

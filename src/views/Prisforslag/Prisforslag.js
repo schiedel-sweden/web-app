@@ -57,22 +57,16 @@ export default class Tillbud extends Component {
         await this.setState({
             pricePageState: state,
         });
-        await this.setState({
-            orderPageState: {
-                rowItems: state.rowItems,
-            }
-        });
+        await this.setState({orderPageState: Object.assign({}, this.state.orderPageState, { rowItems: state.rowItems})});
+
         this.callback();
     }
     orderPageCallback = async (state) => {
         await this.setState({
             orderPageState: state,
         });
-        await this.setState({
-            pricePageState: {
-                rowItems: state.rowItems,
-            }
-        });
+        await this.setState({pricePageState: Object.assign({}, this.state.pricePageState, { rowItems: state.rowItems})});
+
         this.callback();
     }
     callback = () => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import moment from 'moment';
 import 'react-tabs/style/react-tabs.css';
 import logo from './images/Schiedel_logo.png';
 import './App.css';
@@ -192,6 +193,7 @@ export default class App extends Component {
                     kjorer: false,
 
                     beskjed: '',
+                    startDate: moment(),
                 },
             },
             produkterState: {
@@ -212,8 +214,8 @@ export default class App extends Component {
          };
     }
 
-    prisforslagCallback = (state) => {
-        this.setState({
+    prisforslagCallback = async (state) => {
+        await this.setState({
             prisforslagState: state,
         });
     }
