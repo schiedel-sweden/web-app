@@ -28,7 +28,7 @@ export default class HouseType extends Component {
 
     render() {
         return (
-            <Col md={12}>
+            <Col md={12} style={{'padding-bottom': '50px'}}>
                 <Row>
                     <div style={{'margin-left': 'auto', 'margin-right': 'auto',}}><img style={styles.houseImage} src={require('../../images/hus-skiss.png')} alt='house sketch'/></div>
                 </Row>

@@ -57,7 +57,7 @@ export default class CustomerData extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{'padding-bottom': '50px'}}>
                 <div>
                     <h2>Faktureringsadress</h2>
                 </div>
@@ -69,7 +69,6 @@ export default class CustomerData extends Component {
                                 <input style={styles.input} type="text" placeholder="Företag" name="company" value={this.state.company} onChange={async (text) => {await this.setState({company: text.target.value }); this.callback();}}/>
                             </Col>
                         </Row>
-
                         <Row style={{'padding-top': '20px'}}>
                             <Col md={5.5}>
                                 <input style={styles.input} type="text" placeholder="Förnamn" name="firstName" value={this.state.firstName} onChange={async (text) => {await this.setState({firstName: text.target.value}); this.callback();}}/>
@@ -110,7 +109,7 @@ export default class CustomerData extends Component {
                             <Row>
                                 <h3 style={{'padding-right': '40px'}}>Leveransadress</h3>
                                 <label style={{'padding-top': '10px'}}>
-                                    <input type="checkbox" defaultChecked={this.state.sameAsAbove} onChange={this.sameAsAbove}/>
+                                    <input type="checkbox" defaultChecked={this.state.sameAsAbove} style={styles.checkbox}  onChange={this.sameAsAbove}/>
                                     Samma som faktureringsadress
                                 </label>
                             </Row>
@@ -152,5 +151,8 @@ const styles = {
         'border': '2px solid #585858',
         'border-radius': '4px',
         'padding-left': '5px',
+    },
+    checkbox: {
+        'margin-right': '5px',
     },
 };

@@ -45,6 +45,8 @@ export default class Material extends Component {
               </Row>
               <Row>
                   <Col md={{size: 'auto', offset: 1}}>
+                      {/*When the link is being press
+                         the view will change from 'TouchableBlock' to 'MaterialDetail'*/}
                       <div onClick={this.props.setActiveMaterialDetailView}>
                           <p style={styles.link}>
                               Läs mer...

@@ -16,6 +16,7 @@ export default class Produkter extends Component {
             materialTopics: [{id: 0, tagline: "Toggle material 1 items", ingress: "material one"},
                         {id: 1, tagline: "Toggle material 2 items", ingress: "material two"},
                         {id: 2, tagline: "Toggle material 3 items", ingress: "material tree"}],
+
             material: [],
             visible1: true,
             data: [],
@@ -51,6 +52,7 @@ export default class Produkter extends Component {
     }
     /**
     * @return bool
+    * This switch the condition of ismaterialDetailViewActived on and off
     */
     setActiveMaterialDetailView(e) {
         e.preventDefault()
@@ -119,15 +121,15 @@ export default class Produkter extends Component {
     */
     render() {
         return (
-            <div style={styles.container}>
+            <div style={styles.container,{'padding-bottom': '50px'}}>
                 {this.state.isMaterialDetailViewActived &&
-
                     <img style={styles.img}
                         src={require('../../images/arrow_opened.png')}
                         alt='arrow opened'
                     />
                 }
-
+                {/* Depending on what condition ismaterialDetailViewActived is
+                    it will show different view (MaterialDetail or TouchableBlock)*/}
                 {this.activeView()}
             </div>
         );

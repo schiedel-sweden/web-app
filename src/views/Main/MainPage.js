@@ -4,7 +4,7 @@ import {Row, Col} from 'reactstrap';
 export default class MainPage extends Component {
     render() {
         return (
-            <Row>
+            <Row style={{'padding-bottom': '50px'}}>
                 <Col md={1} />
 
                 <Col md={10}>

@@ -100,13 +100,17 @@ export default class PricePage extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{'padding-bottom': '50px'}}>
+                {/* Your pipe section*/}
                 <div>
                     <h3>Din pipe</h3>
                     <p className='borderBottom'>{this.state.pipe}</p>
                 </div>
+                {/* End: Your pipe section*/}
+                {/* Give size & price section*/}
                 <div>
                     <h3>Angitte mått</h3>
+                    
                     <Row>
                         <Col md={5.5}>
                             <label className='borderBottom'>
@@ -192,9 +196,11 @@ export default class PricePage extends Component {
                             </textarea>
                         </Col>
                     </Row>
+
                     <ObjectSummarizer
                         propState={this.state}
                         parentCallback={this.sendCallback}/>
+
                     <Row style={{paddingBottom: 10,}}>
                         <Col md={{size: 4}}>
                             <input style={{'width': '100%',}} value={this.state.totalRabatt} type="number" placeholder={'Rabatt på totalsumma (%)'} onChange={async (input) => {this.setState({totalRabatt: input.target.value});this.callback();}} />
@@ -213,6 +219,7 @@ export default class PricePage extends Component {
                             </div>
                         </Col>
                     </Row>
+
                     <Row>
                         <Col md={5.5}>
                             <label className='borderBottom'>
@@ -246,6 +253,7 @@ export default class PricePage extends Component {
                         <Col md={{offset: 1, size: 5.5 }}>
                         </Col>
                     </Row>
+
                     <Row className='borderBottom'>
                         <Col md={4}>
                             <label>
@@ -266,6 +274,7 @@ export default class PricePage extends Component {
                             </label>
                         </Col>
                     </Row>
+
                     <Row className='borderBottom'>
                         <Col md={2}>
                             <label style={{'padding-right': '10px',}}>BESKJED</label>
@@ -278,6 +287,7 @@ export default class PricePage extends Component {
                             </textarea>
                         </Col>
                     </Row>
+
                     <Row>
                         <Col md={{size: 5.5}}>
                             <div>
@@ -302,8 +312,7 @@ export default class PricePage extends Component {
                             </div>
                         </Col>
                     </Row>
-
-
+                    {/*End: Give size & price section*/}
                 </div>
 
             </div>

@@ -127,7 +127,7 @@ export default class Chimney extends Component {
     render() {
 
         return (
-            <div>
+            <div style={{'padding-bottom': '50px'}}>
                 <div>
 
                     <h2>Typ av skorsten</h2>

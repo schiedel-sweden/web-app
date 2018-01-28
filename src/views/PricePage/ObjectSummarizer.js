@@ -3,6 +3,7 @@ import { Table } from 'reactstrap';
 import BoxRow from './BoxRow'
 import '../../styles/Border.css';
 
+
 export default class ObjectSummarizer extends Component {
 
 
@@ -122,10 +123,9 @@ export default class ObjectSummarizer extends Component {
     render() {
 
         return (
-            <div className='borderBottom'>
-            {this.showView()}
-
-            </div>
+          <div className='borderBottom'>
+              {this.showView()}
+          </div>
         );
     }
 
