@@ -94,6 +94,7 @@ export default class Produkter extends Component {
             material: materialArr,
         });
     }
+
     /**
     * @return TouchableBlock[...]
     */
@@ -107,18 +108,13 @@ export default class Produkter extends Component {
         );
         return listTouchableBlock;
     }
-    /**
-    * @return View
-    */
+
     activeView() {
         return this.state.ismaterialDetailViewActived
           ? <MaterialDetail />
           : this.listTouchableBlock();
     }
 
-    /**
-    * @return View
-    */
     render() {
         return (
             <div style={styles.container,{'padding-bottom': '50px'}}>
