@@ -110,7 +110,8 @@ export default class BoxRow extends Component {
                 {/* rabatt should only be able to be modified by one type of user I assume*/}
                 <td style={{flex: 0.13}}>
                     <GridBoxInc
-                        number={this.state.rabatt} />
+                        number={this.state.rabatt}
+                        parentCallback={this.rebateCallback} />
                 </td>
             </tr>
 
