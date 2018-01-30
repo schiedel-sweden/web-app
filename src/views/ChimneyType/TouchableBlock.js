@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import Detail from './Detail';
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
 import {Row, Col} from 'reactstrap';
->>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
-=======
-import {Row, Col} from 'reactstrap';
->>>>>>> Stashed changes
 
 export default class TouchableBlock extends Component {
     /**
@@ -35,15 +28,8 @@ export default class TouchableBlock extends Component {
     * @return styles
     */
     bGSwitchingColor(order){
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-        if (order % 2 == 0) {
-=======
+
         if (order % 2 === 0) {
->>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
-=======
-        if (order % 2 === 0) {
->>>>>>> Stashed changes
           return styles.lightBackground;
         } else {
           return styles.darkBackground;
@@ -54,10 +40,7 @@ export default class TouchableBlock extends Component {
     */
     getArrowIcon(){
         const arrowIcon = this.state.visible
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
             ? <img onClick={this.setVisibleDetail} src={require('../../images/arrow_opened.png')} style={styles.img} alt='arrow to close dropdown' />
             : <img onClick={this.setVisibleDetail} src={require('../../images/arrow.png')} style={styles.img} alt='arrow to open dropdown'/>;
         return arrowIcon;

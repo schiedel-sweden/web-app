@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
+
 import {Row, Col, Button} from 'reactstrap';
 import '../../styles/Border.css';
 
->>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
-=======
-import {Row, Col, Button} from 'reactstrap';
-import '../../styles/Border.css';
-
->>>>>>> Stashed changes
 
 export default class Detail extends Component {
     /**

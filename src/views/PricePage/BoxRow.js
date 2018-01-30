@@ -96,7 +96,7 @@ export default class BoxRow extends Component {
                         onChange={this.calcSum}
                         parentCallback={this.callback} />
                 </td>
-                {/* price should come from somewhere, no idea*/}
+
                 <td style={{flex: 0.13}}>
                     <GridBox
                         text={this.state.pris}

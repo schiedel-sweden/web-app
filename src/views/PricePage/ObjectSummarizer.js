@@ -109,7 +109,7 @@ export default class ObjectSummarizer extends Component {
                                 antal={item.antal}
                                 pris={item.pris}
                                 sum={item.sum}
-                                rabatt={this.rabatt}
+                                rabatt={item.rabatt}
                                 parentCallback={this.sendCallback} />})}
             </tbody>
             </Table>)

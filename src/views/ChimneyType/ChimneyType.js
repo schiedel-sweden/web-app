@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
 import {Row, Col} from 'reactstrap';
->>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
-=======
-import {Row, Col} from 'reactstrap';
->>>>>>> Stashed changes
+
 
 import TouchableBlock from './TouchableBlock';
 
