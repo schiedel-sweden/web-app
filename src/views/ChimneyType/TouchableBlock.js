@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import Detail from './Detail';
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+import {Row, Col} from 'reactstrap';
+>>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
+=======
+import {Row, Col} from 'reactstrap';
+>>>>>>> Stashed changes
 
 export default class TouchableBlock extends Component {
     /**
@@ -27,7 +35,15 @@ export default class TouchableBlock extends Component {
     * @return styles
     */
     bGSwitchingColor(order){
+<<<<<<< Updated upstream
+<<<<<<< HEAD
         if (order % 2 == 0) {
+=======
+        if (order % 2 === 0) {
+>>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
+=======
+        if (order % 2 === 0) {
+>>>>>>> Stashed changes
           return styles.lightBackground;
         } else {
           return styles.darkBackground;
@@ -38,8 +54,12 @@ export default class TouchableBlock extends Component {
     */
     getArrowIcon(){
         const arrowIcon = this.state.visible
-            ? <img onClick={this.setVisibleDetail} src={require('../../images/arrow_opened.png')} style={styles.img} />
-            : <img onClick={this.setVisibleDetail} src={require('../../images/arrow.png')} style={styles.img} />;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+            ? <img onClick={this.setVisibleDetail} src={require('../../images/arrow_opened.png')} style={styles.img} alt='arrow to close dropdown' />
+            : <img onClick={this.setVisibleDetail} src={require('../../images/arrow.png')} style={styles.img} alt='arrow to open dropdown'/>;
         return arrowIcon;
     }
 
@@ -48,35 +68,42 @@ export default class TouchableBlock extends Component {
     */
     render() {
         return (
-            <div>
+            <div style={this.bGSwitchingColor(this.props.order)}>
+                <Row style={styles.centerText}>
+                    <Col md={{ size: 6, offset: 3 }}>
+                        <h1>
+                            {this.props.chimneyType.tagline}
+                        </h1>
+                    </Col>
+                </Row>
+                <Row style={styles.centerText}>
+                    <Col md={{ size: 6, offset: 3 }}>
+                        <p>
+                            {this.props.chimneyType.ingress}
+                        </p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={10}></Col>
+
+                    <Col md={1}>
+                        <img style={styles.img}
+                            src={require('../../images/add.png')}
+                            onClick={function() {
+                            this.props.touchMethod(this.props.order)
+                            }.bind(this)}
+                            alt='Add this item' />
+                    </Col>
+                    <Col md={1}>
+                        {this.getArrowIcon()}
+                    </Col>
+
+                </Row>
                 <div>
-                    <div style={styles.container}>
-                        <div style={styles.topic}>
-                            <h1>
-                                {this.props.chimneyType.tagline}
-                            </h1>
-                        </div>
-                        <div>
-                            <p>
-                                {this.props.chimneyType.ingress}
-                            </p>
-                        </div>
-                        <div>
-                            <div>
-                                <img style={styles.img}
-                                       src={require('../../images/add.png')}
-                                       onClick={function() {
-                                           this.props.touchMethod(this.props.order)
-                                       }.bind(this)} />
-                            </div>
-                            {this.getArrowIcon()}
-                        </div>
-                    </div>
+                    {this.state.visible &&
+                    <Detail order={this.props.order}
+                        touchMethod={this.props.touchMethod} />}
                 </div>
-                {this.state.visible &&
-                  <Detail order={this.props.order}
-                          touchMethod={this.props.touchMethod}
-                  />}
             </div>
         );
     }
@@ -99,4 +126,7 @@ const styles = {
         height: 30,
         width: 30,
     },
+    centerText: {
+        textAlign: 'center',
+    }
 };

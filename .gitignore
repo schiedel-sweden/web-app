@@ -22,3 +22,4 @@ yarn-error.log*
 
 # .env
 dotenv.js
+env.js

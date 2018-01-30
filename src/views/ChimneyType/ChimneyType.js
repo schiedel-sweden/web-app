@@ -1,4 +1,12 @@
 import React, {Component} from 'react';
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+import {Row, Col} from 'reactstrap';
+>>>>>>> 18e1dd497e67122eed1156336bc130d5fa23f387
+=======
+import {Row, Col} from 'reactstrap';
+>>>>>>> Stashed changes
 
 import TouchableBlock from './TouchableBlock';
 
@@ -7,42 +15,10 @@ export default class ChimeneyType extends Component {
         super(props);
 
         this.state = {
-            chimneyType: [
-                {
-                    id: 0,
-                    tagline: "PERMETER",
-                    ingress: "permeter"
-                },
-                {
-                    id: 1,
-                    tagline: "SOLID VENT",
-                    ingress: "solid vent"
-                },
-                {
-                    id: 2,
-                    tagline: "ETESJEPIPE",
-                    ingress: "etesjepipe"
-                },
-                {
-                    id: 3,
-                    tagline: "RONDO",
-                    ingress: "rondo"
-                },
-                {
-                    id: 4,
-                    tagline: "KING FIRE",
-                    ingress: "Peis og pipe i ett"
-                }
-            ],
+            chimneyType: this.props.propState.chimneyType,
 
-            choice: '',
-            options: [
-                'permeter',
-                'solid vent',
-                'etesjepipe',
-                'rondo',
-                'king fire'
-            ],
+            choice: this.props.propState.choice,
+            options: this.props.propState.options,
         }
 
     }
@@ -74,10 +50,16 @@ export default class ChimeneyType extends Component {
         catch(error) {
             console.log(error);
         }
-        //this.callback();
+        this.callback();
     }
 
+    callback = () => {
+        this.props.parentCallback(this.state);
+    }
 
+    /**
+    * @return TouchableBlock[...]
+    */
     listItems = () => {
         const a = this.state.chimneyType.map((topic, i) =>
         <TouchableBlock key = {i} chimneyType={topic}
@@ -90,18 +72,11 @@ export default class ChimeneyType extends Component {
 
     render() {
         return (
-            <div>
-                <h1>ChimneyType</h1>
-
+            <Col md={12} style={{'padding-bottom': '50px'}}>
                 <div>
                     {this.listItems()}
-
-                    <div>
-                        <p>SKORSTENSTYP</p>
-                        <p onChange={(text) => this.setState({choice: text})}>{this.state.choice}</p>
-                    </div>
                 </div>
-            </div>
+            </Col>
 
         );
 
