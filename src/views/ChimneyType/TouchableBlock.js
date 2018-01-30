@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Detail from './Detail';
+import {Row, Col} from 'reactstrap';
 
 export default class TouchableBlock extends Component {
     /**
@@ -48,37 +49,38 @@ export default class TouchableBlock extends Component {
     */
     render() {
         return (
-            <div>
-                <div>
-                    <div style={styles.container}>
-                        <div style={styles.topic}>
-                            <h1>
-                                {this.props.chimneyType.tagline}
-                            </h1>
-                        </div>
-                        <div>
-                            <p>
-                                {this.props.chimneyType.ingress}
-                            </p>
-                        </div>
-                        <div>
-                            <div>
-                                <img style={styles.img}
-                                       src={require('../../images/add.png')}
-                                       onClick={function() {
-                                           this.props.touchMethod(this.props.order)
-                                       }.bind(this)}
-                                       alt='Add this item' />
-                            </div>
-                            {this.getArrowIcon()}
-                        </div>
-                    </div>
-                </div>
+            <Col md={12} style={styles.container}>
+                <Row style={styles.centerText}>
+                    <h1>
+                        {this.props.chimneyType.tagline}
+                    </h1>
+                </Row>
+                <Row style={styles.centerText}>
+                    <p>
+                        {this.props.chimneyType.ingress}
+                    </p>
+                </Row>
+                <Row>
+                    <Col md={10}></Col>
+
+                    <Col md={2}>
+                        <img style={styles.img}
+                            src={require('../../images/add.png')}
+                            onClick={function() {
+                            this.props.touchMethod(this.props.order)
+                            }.bind(this)}
+                            alt='Add this item' />
+
+                        {this.getArrowIcon()}
+                    </Col>
+
+                </Row>
+            <Col>
                 {this.state.visible &&
-                  <Detail order={this.props.order}
-                          touchMethod={this.props.touchMethod}
-                  />}
-            </div>
+                <Detail order={this.props.order}
+                    touchMethod={this.props.touchMethod} />}
+            </Col>
+        </Col>
         );
     }
 }
@@ -100,4 +102,7 @@ const styles = {
         height: 30,
         width: 30,
     },
+    centerText: {
+        textAlign: 'center',
+    }
 };

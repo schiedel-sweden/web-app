@@ -1,26 +1,42 @@
 import React, {Component} from 'react';
+import {Row, Col} from 'reactstrap';
 
 export default class MainPage extends Component {
     render() {
         return (
-            <div>
-                <div>
-                    <img src={require('../../images/roof.png')} alt='Example of fireplace' />
-                </div>
+            <Row>
+                <Col md={1} />
 
-                <div>
-                    <div>
-                        <img src={require('../../images/prisforslag.png')} alt='got to price suggestion' />
-                        <h2>Tillbud</h2>
-                    </div>
-                    <div>
-                        <img src={require('../../images/produkter.png')} alt='got to products'/>
-                        <h2>Produkter</h2>
-                    </div>
-                </div>
-            </div>
+                <Col md={10}>
+                    <Row>
+                        <img src={require('../../images/roof.png')} alt='Example of fireplace' />
+                    </Row>
+
+                    <Row>
+                        <Col md={6}>
+                            <img onClick={this.props.navPris} src={require('../../images/prisforslag.png')} style={styles.image} alt='got to price suggestion' />
+                            <h2>Tillbud</h2>
+                        </Col>
+                        <Col md={6}>
+                            <img onClick={this.props.navProd} src={require('../../images/produkter.png')} style={styles.image} alt='got to products'/>
+                            <h2>Produkter</h2>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col md={1} />
+            </Row>
 
         );
 
+    }
+}
+
+const styles = {
+    image: {
+        "max-width": "100%",
+        "height": "auto",
+        "display": "block",
+        "cursor": "pointer",
+        "cursor": "hand",
     }
 }

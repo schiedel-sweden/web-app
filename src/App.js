@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import moment from 'moment';
 import 'react-tabs/style/react-tabs.css';
 import logo from './images/Schiedel_logo.png';
 import './App.css';
+
 
 import Prisforslag from './views/Prisforslag/Prisforslag';
 import Produkter from './views/Produkter/Produkter';
@@ -17,7 +19,6 @@ export default class App extends Component {
         this.state = {
             tabIndex: 0,
 
-            // TODO: Add persistant state for entire program!
             prisforslagState: {
                 chimneyTypeState: {
                     chimneyType: [
@@ -135,18 +136,21 @@ export default class App extends Component {
                                 antal: 0,
                                 pris: 3000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 231,
                                 antal: 0,
                                 pris: 1500,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 312,
                                 antal: 0,
                                 pris: 2000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                         ],
 
@@ -167,18 +171,21 @@ export default class App extends Component {
                                 antal: 0,
                                 pris: 3000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 231,
                                 antal: 0,
                                 pris: 1500,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 312,
                                 antal: 0,
                                 pris: 2000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                         ],
                     kranbil: false,
@@ -186,6 +193,7 @@ export default class App extends Component {
                     kjorer: false,
 
                     beskjed: '',
+                    startDate: moment(),
                 },
             },
             produkterState: {
@@ -206,8 +214,8 @@ export default class App extends Component {
          };
     }
 
-    prisforslagCallback = (state) => {
-        this.setState({
+    prisforslagCallback = async (state) => {
+        await this.setState({
             prisforslagState: state,
         });
     }
@@ -217,39 +225,59 @@ export default class App extends Component {
         });
     }
 
+    navToPrisforslag = () => {
+        this.setState({
+            tabIndex: 1,
+        });
+    }
+    navToProducts = () => {
+        this.setState({
+            tabIndex: 2,
+        });
+    }
     render() {
         return (
-            <div>
-                <header className="App-header" style={{height: 40}}>
+            <div class="container">
+
+                <header className="App-header" style={{height: 60}}>
                     <img src={logo} alt="logo" />
                 </header>
-            <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
-                <TabList>
-                    <Tab>Återförsäljare</Tab>
-                    <Tab>Prisförslag</Tab>
-                    <Tab>Produkter</Tab>
-                    <Tab>Om oss</Tab>
-                    <Tab>Kontakta oss</Tab>
-                </TabList>
+                    <div class="row">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-10">
+                                <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
+                                    <TabList>
+                                        <Tab>Återförsäljare</Tab>
+                                        <Tab>Prisförslag</Tab>
+                                        <Tab>Produkter</Tab>
+                                        <Tab>Om oss</Tab>
+                                        <Tab>Kontakta oss</Tab>
+                                    </TabList>
 
-                <TabPanel><MainPage /></TabPanel>
-                <TabPanel><Prisforslag
-                            propState={this.state.prisforslagState}
-                            parentCallback={this.prisforslagCallback} />
-                </TabPanel>
-                <TabPanel><Produkter /></TabPanel>
-                <TabPanel><OmOss /></TabPanel>
-                <TabPanel><ContactUs
-                            propState={this.state.contactUsState}
-                            parentCallback={this.contactUsCallback} />
-                </TabPanel>
-            </Tabs>
+                                    <TabPanel><MainPage
+                                                navPris={this.navToPrisforslag}
+                                                navProd={this.navToProducts} />
+                                    </TabPanel>
+                                    <TabPanel><Prisforslag
+                                                propState={this.state.prisforslagState}
+                                                parentCallback={this.prisforslagCallback} />
+                                    </TabPanel>
+                                    <TabPanel><Produkter /></TabPanel>
+                                    <TabPanel><OmOss /></TabPanel>
+                                    <TabPanel><ContactUs
+                                                propState={this.state.contactUsState}
+                                                parentCallback={this.contactUsCallback} />
+                                    </TabPanel>
+                                </Tabs>
+                            </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
             </div>
         );
       }
     }
-
-
 
 let styles = {
   icon: {
