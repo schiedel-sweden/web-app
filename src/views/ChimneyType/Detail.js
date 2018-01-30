@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Row, Col, Button} from 'reactstrap';
+import '../../styles/Border.css';
+
 
 export default class Detail extends Component {
     /**
@@ -26,19 +29,29 @@ export default class Detail extends Component {
     */
     render() {
         return (
-          <div style={this.switchingContainerColor(this.props.order)}>
-              <div style={styles.content}>
-                  <p>
-                      djshaf adskjfna fd askfj asd dsjf dsfjh dsaf jidsf öasfdhkhk
-                  </p>
-                  <button
-                      style={styles.button}
-                      onClick={function() {
-                          this.props.touchMethod(this.props.order)
-                      }.bind(this)}>
-                      <p>Velg Permeter</p>
-                  </button>
-              </div>
+          <div className='borderTop' style={this.switchingContainerColor(this.props.order)}>
+              <Row>
+                  <Col md={{ size: 6, offset: 3 }}>
+                      <p>
+                          djshaf adskjfna fd askfj asd dsjf dsfjh dsaf jidsf öasfdhkhk
+                      </p>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col></Col>
+                  <Col md='auto'>
+                      <Button
+                          style={styles.button}
+                          size="lg"
+                          color="warning"
+                          onClick={function() {
+                              this.props.touchMethod(this.props.order)
+                          }.bind(this)}>
+                          Velg Permeter
+                      </Button>
+                  </Col>
+                  <Col></Col>
+              </Row>
           </div>
         );
     }
@@ -60,12 +73,5 @@ const styles = {
         borderWidth: 2,
         borderColor: '#333333',
         backgroundColor: '#F9CE3C',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    content: {
-        alignItems: 'center',
     },
 };

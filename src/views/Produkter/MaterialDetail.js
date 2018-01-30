@@ -51,29 +51,29 @@ export default class MaterialDetail extends Component {
     */
     render() {
         return (
-          <div >
+          <div style={styles.container}>
               <img
                   style={styles.img}
                   src={require('../../images/roof.png')}
                   alt='roof with chimney'
               />
-              <div style={styles.container}>
+              <div style={{'padding-top': '40px'}}>
                   <h2>
                       Solid vent
                   </h2>
-                  <h4>
+                  <h4 style={{'padding-top': '10px'}}>
                       Solid vent
                   </h4>
                   <p>
                       djshaf adskjfna fd askfj asd dsjf dsfjh dsaf jidsf öasfdhkhk
                   </p>
-                  <h4>
+                  <h4 style={{'padding-bottom': '10px'}}>
                       Information
                   </h4>
               </div>
               {this.listMaterialInformation()}
-              <div style={styles.container}>
-                  <h4>
+              <div style={{'padding-top': '40px'}}>
+                  <h4 style={{'padding-bottom': '10px'}}>
                       Technical Specification
                   </h4>
                   {this.listMaterialTechnicalSpecification()}
@@ -85,16 +85,20 @@ export default class MaterialDetail extends Component {
 
 const styles = {
     container: {
-        alignSelf: 'stretch',
+        'padding-bottom': '50px',
     },
     text: {
 
         textAlign: 'left',
     },
     img: {
-        resizeMode: 'cover',
-        flex: 1,
-
+        'max-width': '100%',
+        'height': 'auto',
+        'display': 'block',
+        'cursor': 'pointer',
+        'cursor': 'hand',
+        'margin-left': 'auto',
+        'margin-right': 'auto',
     },
 
 };

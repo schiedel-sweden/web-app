@@ -49,38 +49,43 @@ export default class TouchableBlock extends Component {
     */
     render() {
         return (
-            <Col md={12} style={styles.container}>
+            <div style={this.bGSwitchingColor(this.props.order)}>
                 <Row style={styles.centerText}>
-                    <h1>
-                        {this.props.chimneyType.tagline}
-                    </h1>
+                    <Col md={{ size: 6, offset: 3 }}>
+                        <h1>
+                            {this.props.chimneyType.tagline}
+                        </h1>
+                    </Col>
                 </Row>
                 <Row style={styles.centerText}>
-                    <p>
-                        {this.props.chimneyType.ingress}
-                    </p>
+                    <Col md={{ size: 6, offset: 3 }}>
+                        <p>
+                            {this.props.chimneyType.ingress}
+                        </p>
+                    </Col>
                 </Row>
                 <Row>
                     <Col md={10}></Col>
 
-                    <Col md={2}>
+                    <Col md={1}>
                         <img style={styles.img}
                             src={require('../../images/add.png')}
                             onClick={function() {
                             this.props.touchMethod(this.props.order)
                             }.bind(this)}
                             alt='Add this item' />
-
+                    </Col>
+                    <Col md={1}>
                         {this.getArrowIcon()}
                     </Col>
 
                 </Row>
-            <Col>
-                {this.state.visible &&
-                <Detail order={this.props.order}
-                    touchMethod={this.props.touchMethod} />}
-            </Col>
-        </Col>
+                <div>
+                    {this.state.visible &&
+                    <Detail order={this.props.order}
+                        touchMethod={this.props.touchMethod} />}
+                </div>
+            </div>
         );
     }
 }

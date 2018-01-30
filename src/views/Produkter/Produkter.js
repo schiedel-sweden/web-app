@@ -16,6 +16,7 @@ export default class Produkter extends Component {
             materialTopics: [{id: 0, tagline: "Toggle material 1 items", ingress: "material one"},
                         {id: 1, tagline: "Toggle material 2 items", ingress: "material two"},
                         {id: 2, tagline: "Toggle material 3 items", ingress: "material tree"}],
+
             material: [],
             visible1: true,
             data: [],
@@ -26,7 +27,7 @@ export default class Produkter extends Component {
         this.fetchData = this.fetchData.bind(this);
         this.getmaterial = this.getmaterial.bind(this);
         this.listTouchableBlock = this.listTouchableBlock.bind(this);
-        this.setActivematerialDetailView = this.setActivematerialDetailView.bind(this);
+        this.setActiveMaterialDetailView = this.setActiveMaterialDetailView.bind(this);
         this.activeView = this.activeView.bind(this);
     }
 
@@ -51,8 +52,9 @@ export default class Produkter extends Component {
     }
     /**
     * @return bool
+    * This switch the condition of ismaterialDetailViewActived on and off
     */
-    setActivematerialDetailView(e) {
+    setActiveMaterialDetailView(e) {
         e.preventDefault()
           this.setState({
             ismaterialDetailViewActived: !this.state.ismaterialDetailViewActived
@@ -92,6 +94,7 @@ export default class Produkter extends Component {
             material: materialArr,
         });
     }
+
     /**
     * @return TouchableBlock[...]
     */
@@ -101,35 +104,29 @@ export default class Produkter extends Component {
             visible={this.state.visible1}
             material={this.state.material}
             order={i}
-            setActivematerialDetailView = {this.setActivematerialDetailView}/>
+            setActiveMaterialDetailView = {this.setActiveMaterialDetailView}/>
         );
         return listTouchableBlock;
     }
-    /**
-    * @return View
-    */
+
     activeView() {
         return this.state.ismaterialDetailViewActived
           ? <MaterialDetail />
           : this.listTouchableBlock();
     }
 
-    /**
-    * @return View
-    */
     render() {
         return (
-            <div style={styles.container}>
+            <div style={styles.container,{'padding-bottom': '50px'}}>
                 {this.state.isMaterialDetailViewActived &&
-
                     <img style={styles.img}
                         src={require('../../images/arrow_opened.png')}
                         alt='arrow opened'
                     />
                 }
-
-            {this.activeView()}
-
+                {/* Depending on what condition ismaterialDetailViewActived is
+                    it will show different view (MaterialDetail or TouchableBlock)*/}
+                {this.activeView()}
             </div>
         );
     }

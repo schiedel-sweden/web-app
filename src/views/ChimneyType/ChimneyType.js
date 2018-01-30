@@ -50,7 +50,9 @@ export default class ChimeneyType extends Component {
         this.props.parentCallback(this.state);
     }
 
-
+    /**
+    * @return TouchableBlock[...]
+    */
     listItems = () => {
         const a = this.state.chimneyType.map((topic, i) =>
         <TouchableBlock key = {i} chimneyType={topic}
@@ -63,14 +65,9 @@ export default class ChimeneyType extends Component {
 
     render() {
         return (
-            <Col md={12}>
+            <Col md={12} style={{'padding-bottom': '50px'}}>
                 <div>
                     {this.listItems()}
-
-                    <div>
-                        <p>SKORSTENSTYP</p>
-                        <p>{this.state.choice}</p>
-                    </div>
                 </div>
             </Col>
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Row} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
+
 
 export default class GridBoxInc extends Component {
 
@@ -52,7 +53,7 @@ export default class GridBoxInc extends Component {
                 <div onClick={this.decrement}>
                     <p>-</p>
                 </div>
-                <div style={{paddingHorizontal: 4}}>
+                <div style={{'padding-left': '10px', 'padding-right': '9px'}}>
                     <p>{this.state.number.toString()}</p>
                 </div>
                 <div onClick={this.increment}>
@@ -68,13 +69,16 @@ export default class GridBoxInc extends Component {
 const styles = {
     container: {
         flex: 1,
-        flexDirection: 'row',
-        maxWidth: 90,
+        maxWidth: 100,
         backgroundColor: '#F9CE3C',
+        'border-style': 'solid',
         borderRadius: 10,
         borderColor: '#333333',
-        borderWidth: 4,
+        borderWidth: 2,
         justifyContent: 'center',
-        alignItems: 'center',
+        'padding-top': '10px',
+        'text-align': 'center',
+        'margin-left': 'auto',
+        'margin-right': 'auto',
     },
 };

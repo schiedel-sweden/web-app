@@ -35,7 +35,7 @@ export default class GridBox extends Component {
         return (
             <div style={styles.border}>
 
-                <p>{this.state.text}</p>
+                <p style={{'padding-left': '5px'}}>{this.state.text}</p>
 
             </div>
         );
@@ -48,10 +48,11 @@ const styles = {
         flex: 1,
         maxWidth: 200,
         backgroundColor: '#F9CE3C',
+        'border-style': 'solid',
         borderRadius: 10,
         borderColor: '#333333',
-        borderWidth: 4,
+        borderWidth: 2,
         justifyContent: 'center',
-        alignItems: 'center',
+        'padding-top': '10px',
     }
 };

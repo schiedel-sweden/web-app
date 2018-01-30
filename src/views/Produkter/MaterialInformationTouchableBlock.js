@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Row, Col} from 'reactstrap';
+import '../../styles/Border.css';
 
 
 export default class MaterialInformationTouchableBlock extends Component {
@@ -26,8 +28,8 @@ export default class MaterialInformationTouchableBlock extends Component {
     */
     getArrowIcon(){
         const arrowIcon = this.state.visible
-            ? <img  src={require('../../images/arrow_opened.png')} alt='opened arrow'/>
-            : <img src={require('../../images/arrow.png')} alt='closed arrow'/>;
+            ? <img onClick={this.setVisibleMat} style={styles.img} src={require('../../images/arrow_opened.png')} alt='opened arrow'/>
+            : <img onClick={this.setVisibleMat} style={styles.img} src={require('../../images/arrow.png')} alt='closed arrow'/>;
         return arrowIcon;
     }
     /**
@@ -54,15 +56,17 @@ export default class MaterialInformationTouchableBlock extends Component {
     render() {
         return (
             <div>
-                <div onPress={this.setVisibleMat}>
-                    <div style={styles.touchableContainer}>
-                        <div style={styles.touchableItem}>
+                <div onClick={this.setVisibleMat}>
+                    <Row className='borderTop' style={styles.touchableContainer}>
+                        <Col>
                             <h4>
                                 {this.props.matInfo}
                             </h4>
-                             {this.getArrowIcon()}
-                        </div>
-                    </div>
+                        </Col>
+                        <Col md={1}>
+                            {this.getArrowIcon()}
+                        </Col>
+                    </Row>
                 </div>
                 {this.state.visible && (this.listInformationDescription())}
             </div>
@@ -76,16 +80,9 @@ const styles = {
         borderRadius: 1,
         borderWidth: 1,
         borderColor: '#EEEEEE',
-
     },
-    touchableItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    infoDescContainer: {
-
-    },
-    infoDesc: {
-
+    img: {
+        height: 30,
+        width: 30,
     },
 };

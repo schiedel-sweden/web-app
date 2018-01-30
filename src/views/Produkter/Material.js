@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {Row, Col} from 'reactstrap';
+import '../../styles/Border.css';
 
 export default class Material extends Component {
     /**
@@ -27,19 +28,33 @@ export default class Material extends Component {
     */
     render() {
         return (
-          <div style={this.switchingContainerColor(this.props.isLightBackground)}>
-              <h4>
-                  {this.props.mat}
-              </h4>
-              <p>
-                  djshaf adskjfna fd askfj asd dsjf dsfjh dsaf jidsf öasfdhkhk
-              </p>
-              <div onClick={this.props.setActiveMaterialDetailView}>
-              <p style={styles.link}>
-                  Läs mer... // the screen to navigate to is not avalaible yet
-              </p>
-              </div>
-          </div>
+          <Col className='borderTop' style={this.switchingContainerColor(this.props.isLightBackground)}>
+              <Row>
+                  <Col md={{size: 'auto', offset: 1}}>
+                      <h4>
+                          {this.props.mat}
+                      </h4>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col md={{size: 'auto', offset: 1}}>
+                      <p>
+                          djshaf adskjfna fd askfj asd dsjf dsfjh dsaf jidsf öasfdhkhk
+                      </p>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col md={{size: 'auto', offset: 1}}>
+                      {/*When the link is being press
+                         the view will change from 'TouchableBlock' to 'MaterialDetail'*/}
+                      <div onClick={this.props.setActiveMaterialDetailView}>
+                          <p style={styles.link}>
+                              Läs mer...
+                          </p>
+                      </div>
+                  </Col>
+              </Row>
+          </Col>
         );
     }
 }

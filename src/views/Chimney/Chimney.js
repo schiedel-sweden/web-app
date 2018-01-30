@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Row, Col} from 'reactstrap';
+import '../../styles/Border.css';
 
 export default class Chimney extends Component {
     constructor(props) {
@@ -125,20 +127,20 @@ export default class Chimney extends Component {
     render() {
 
         return (
-            <div>
+            <div style={{'padding-bottom': '50px'}}>
                 <div>
 
                     <h2>Typ av skorsten</h2>
-                    <div>
+                    <div className='borderBottom' style={{'padding-top': '20px'}}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.alternative1} onChange={this.alt1} />
+                            <input type="checkbox" defaultChecked={this.state.alternative1} style={styles.checkbox} onChange={this.alt1} />
                             Alternative 1
                         </label>
                     </div>
 
-                    <div>
+                    <div className='borderBottom' style={{'padding-top': '20px'}}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.alternative2} onChange={this.alt2} />
+                            <input type="checkbox" defaultChecked={this.state.alternative2} style={styles.checkbox} onChange={this.alt2} />
                             Alternative 2
                         </label>
                     </div>
@@ -146,115 +148,121 @@ export default class Chimney extends Component {
 
                 <h2>Över tak</h2>
 
-                <div>
-                    <div>
+                <Row className='borderBottom' style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.pusset} onChange={this.pusset} />
+                            <input type="checkbox" defaultChecked={this.state.pusset} style={styles.checkbox} onChange={this.pusset} />
                             Pusset pipe
                         </label>
-                    </div>
-
-                    <div>
+                    </Col>
+                    <Col md={{ offset:1, size: 5.5}}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.topavdekning} onChange={this.topavdekning} />
+                            <input type="checkbox" defaultChecked={this.state.topavdekning} style={styles.checkbox} onChange={this.topavdekning} />
                             Topavdekninge
                         </label>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
 
-                <div>
-                    <div>
+                <Row className='borderBottom' style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.beslag} onChange={this.beslag} />
+                            <input type="checkbox" defaultChecked={this.state.beslag} style={styles.checkbox} onChange={this.beslag} />
                             Komplett firkantet beslag
                         </label>
-                    </div>
-
-                    <div>
+                    </Col>
+                    <Col md={{ offset:1, size: 5.5}}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.feieplatform} onChange={this.feieplatform} />
+                            <input type="checkbox" defaultChecked={this.state.feieplatform} style={styles.checkbox} onChange={this.feieplatform} />
                             Feieplatform (Kun for takstein)
                         </label>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
 
-                <div>
-                    <div>
+                <Row className='borderBottom' style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.feieluke} onChange={this.feieluke} />
+                            <input type="checkbox" defaultChecked={this.state.feieluke} style={styles.checkbox} onChange={this.feieluke} />
                             Feieluke over tak
                         </label>
-                    </div>
-
-                    <div>
+                    </Col>
+                    <Col md={{ offset:1, size: 5.5}}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.tegelforblendet} onChange={this.tegelforblendet} />
+                            <input type="checkbox" defaultChecked={this.state.tegelforblendet} style={styles.checkbox} onChange={this.tegelforblendet} />
                             Tegelforblendet pipe
                         </label>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
 
-                <div>
-                    <div>
+                <Row className='borderBottom' style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.flexiroll} onChange={this.flexiroll} />
+                            <input type="checkbox" defaultChecked={this.state.flexiroll} style={styles.checkbox} onChange={this.flexiroll} />
                             Flexiroll for tetting mot damsperre
                         </label>
-                    </div>
+                    </Col>
+                    <Col md={{ offset:1, size: 5.5}}>
+                        <label>
+                            <input type="checkbox" defaultChecked={this.state.tetting} style={styles.checkbox} onChange={this.tetting} />
+                            Tetting mot undertak
+                        </label>
+                    </Col>
+                </Row>
 
-                    <div>
-                        <input type="checkbox" defaultChecked={this.state.tetting} onChange={this.tetting} />
-                        <p>Tetting mot undertak</p>
-                    </div>
-                </div>
-
-                <div>
+                <div className='borderBottom' style={{'padding-top': '20px'}}>
                     <div>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.wakaflex} onChange={this.wakaflex} />
+                            <input type="checkbox" defaultChecked={this.state.wakaflex} style={styles.checkbox} onChange={this.wakaflex} />
                             Wakaflex - Benyttes som ekstra tetting rundt beslag i spesielt i vaerutsatte områder
                         </label>
                     </div>
                 </div>
 
                 <h2>Tillval</h2>
-                <div>
-                    <div>
+                <Row className='borderBottom' style={{'padding-top': '20px'}}>
+                    <Col md={5.5}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.wireset} onChange={this.wireset} />
+                            <input type="checkbox" defaultChecked={this.state.wireset} style={styles.checkbox} onChange={this.wireset} />
                             Wireset for heising/montering
                         </label>
-                    </div>
-
-                    <div>
+                    </Col>
+                    <Col md={{ offset:1, size: 5.5}}>
                         <label>
-                            <input type="checkbox" defaultChecked={this.state.lokk} onChange={this.lokk} />
+                            <input type="checkbox" defaultChecked={this.state.lokk} style={styles.checkbox} onChange={this.lokk} />
                             Lokk til tilluftsaddapter
                         </label>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
 
-                <div>
-                    <div>
-                        <label>
-                            Roykinnforing 125-160
-                            <input type="number" placeholder={0} value={this.state.roykinnforingLiten} onChange={(input) => this.setState({roykinnforingLiten: input.target.value})} />
-                            mm
+                <Row>
+                    <Col md={5.5}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>Roykinnforing 125-160</label>
+                            <div style={{'float': 'right',}}>
+                                <input type="number" placeholder={0} value={this.state.roykinnforingLiten} onChange={(input) => this.setState({roykinnforingLiten: input.target.value})} />
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </div>
                         </label>
-                    </div>
-                    <div>
-                        <label>
-                            Roykinnforing 150-160
-                            <input type="number" placeholder={0} value={this.state.roykinnforingStor} onChange={(input) => this.setState({roykinnforingStor: input.target.value})} />
-                            mm
+                    </Col>
+                    <Col md={{offset: 1, size: 5.5 }}>
+                        <label className='borderBottom'>
+                            <label style={{'width': '190px', 'padding-right': '10px',}}>Roykinnforing 150-160</label>
+                            <div style={{'float': 'right',}}>
+                                <input type="number" placeholder={0} value={this.state.roykinnforingStor} onChange={(input) => this.setState({roykinnforingStor: input.target.value})} />
+                                <label style={{'padding-left': '5px'}}>mm</label>
+                            </div>
                         </label>
-                    </div>
-                </div>
-
+                    </Col>
+                </Row>
 
             </div>
 
         );
 
     }
+}
+
+let styles = {
+    checkbox: {
+        'margin-right': '5px',
+    },
 }

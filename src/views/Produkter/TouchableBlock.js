@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Row, Col} from 'reactstrap';
 
 import Material from './Material';
 
@@ -71,23 +72,29 @@ export default class TouchableBlock extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <div style={styles.container}>
-                        <div style={styles.topic}>
+                <Col style={this.bGSwitchingColor(this.props.order)}>
+                    <Row style={styles.topic}>
+                        <Col md={{ size: 6, offset: 3 }}>
                             <h1>
                                 {this.props.materialTopic.tagline}
                             </h1>
-                        </div>
-                        <div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col></Col>
+                        <Col md='auto'>
                             <p>
                                 {this.props.materialTopic.ingress}
                             </p>
-                        </div>
-                        <div>
+                        </Col>
+                        <Col></Col>
+                    </Row>
+                    <Row>
+                        <Col md={{ offset: 11, size: 1 }}>
                             {this.getArrowIcon()}
-                        </div>
-                    </div>
-                </div>
+                        </Col>
+                    </Row>
+                </Col>
                 {this.state.visible && (this.listMaterial())}
             </div>
         );
@@ -95,11 +102,6 @@ export default class TouchableBlock extends Component {
 }
 
 const styles = {
-    container: {
-        alignSelf: 'stretch',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     lightBackground: {
         backgroundColor: '#EEEEEE',
     },
@@ -107,7 +109,6 @@ const styles = {
         backgroundColor: '#B9B9B9',
     },
     img: {
-        alignSelf: 'flex-end',
         height: 30,
         width: 30,
     },

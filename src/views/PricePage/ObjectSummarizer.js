@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-
+import { Table } from 'reactstrap';
 import BoxRow from './BoxRow'
+import '../../styles/Border.css';
+
 
 export default class ObjectSummarizer extends Component {
 
@@ -87,18 +89,31 @@ export default class ObjectSummarizer extends Component {
 
     showView = () => {
         try {
-            return (<div>
-                        {this.state.rowItems.map((item, index) => {
-                            return <BoxRow
-                                        key={index}
-                                        number={item.number}
-                                        description='beskrivelsetext'
-                                        antal={item.antal}
-                                        pris={item.pris}
-                                        sum={item.sum}
-                                        rabatt={item.rabatt}
-                                        parentCallback={this.sendCallback} />})}
-                </div>)
+            return (<Table>
+            <thead>
+                <tr>
+                    <th>NOBBNUMMBER</th>
+                    <th>BESKRIVELSE</th>
+                    <th>ANTALL</th>
+                    <th>PRIS</th>
+                    <th>SUM</th>
+                    <th>RABATT (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {this.state.rowItems.map((item, index) => {
+                    return <BoxRow
+                                key={index}
+                                number={item.number}
+                                description='beskrivelsetext'
+                                antal={item.antal}
+                                pris={item.pris}
+                                sum={item.sum}
+                                rabatt={this.rabatt}
+                                parentCallback={this.sendCallback} />})}
+            </tbody>
+            </Table>)
+
         }
         catch (e) {
             //console.log(e);
@@ -110,11 +125,9 @@ export default class ObjectSummarizer extends Component {
     render() {
 
         return (
-            <div>
-            {this.showView()}
-
-
-            </div>
+          <div className='borderBottom'>
+              {this.showView()}
+          </div>
         );
     }
 
