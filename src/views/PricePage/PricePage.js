@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Row} from 'reactstrap';
 
 import ObjectSummarizer from './ObjectSummarizer';
 import {Row, Col, Table} from 'reactstrap';
@@ -253,6 +254,7 @@ export default class PricePage extends Component {
                         <Col md={{offset: 1, size: 5.5 }}>
                         </Col>
                     </Row>
+
 
                     <Row className='borderBottom'>
                         <Col md={4}>

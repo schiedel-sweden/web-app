@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
 import {Row, Col, Table} from 'reactstrap';
+// https://github.com/Hacker0x01/react-datepicker
+// only works on the latest browsers
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css'
+
 import ObjectSummarizer from '../PricePage/ObjectSummarizer';
 
 export default class OrderPage extends Component {
@@ -14,6 +24,7 @@ export default class OrderPage extends Component {
             kjorer: this.props.propState.kjorer,
 
             beskjed: this.props.propState.beskjed,
+            startDate: this.props.propState.startDate,
 
 
         }
@@ -72,6 +83,15 @@ export default class OrderPage extends Component {
         this.callback();
     }
 
+    // method that is run when changing date
+    handleChangeDate = async (date) => {
+        await this.setState({
+            startDate: date,
+        });
+        this.callback();
+    }
+
+    // runs the callback from the parent (Prisforslag.js)
     callback = () => {
         this.props.parentCallback(this.state);
     }
@@ -161,6 +181,7 @@ export default class OrderPage extends Component {
                     <Col md={5.5}>
                         <label className='borderBottom'>
                             <label style={{'width': '190px', 'padding-right': '10px',}}>DATO:</label>
+                            {moment().format('ll')}
                             <div style={{'float': 'right',}}>
                                 <label style={{'padding-right': '5px'}}></label>
                                 <label style={{'padding-left': '5px'}}></label>
@@ -170,6 +191,11 @@ export default class OrderPage extends Component {
                     <Col md={{offset: 1, size: 5.5 }}>
                         <label className='borderBottom'>
                             <label style={{'width': '190px', 'padding-right': '10px',}}>Ønsket leveringsdato:</label>
+                            <DatePicker
+                              selected={this.state.startDate}
+                              onChange={this.handleChangeDate}
+                              minDate={moment()}
+                              maxDate={moment().add(21, "days")} />
                             <div style={{'float': 'right',}}>
                                 <label style={{'padding-right': '5px'}}></label>
                                 <label style={{'padding-left': '5px'}}></label>
@@ -215,6 +241,7 @@ export default class OrderPage extends Component {
                         </div>
                     </Col>
                 </Row>
+
             </div>
 
         );

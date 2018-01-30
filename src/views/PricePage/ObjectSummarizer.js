@@ -41,12 +41,13 @@ export default class ObjectSummarizer extends Component {
     }
 
     // add callback functions
-    sendCallback = (sum, antal, number) => {
+    sendCallback = (sum, antal, number, rabatt) => {
         let stateMarker = this.state.rowItems;
         for(let i = 0; i < this.state.rowItems.length; i++) {
             if (number === this.state.rowItems[i].number) {
                 stateMarker[i].sum = sum;
                 stateMarker[i].antal = antal;
+                stateMarker[i].rabatt = rabatt;
                 this.setState({stateMarker});
             }
         }
@@ -57,7 +58,7 @@ export default class ObjectSummarizer extends Component {
         let netto = 0;
         let rowItems = this.state.rowItems;
         for(let i = 0; i < this.state.rowItems.length; i++) {
-            netto += rowItems[i].sum
+            netto += rowItems[i].sum;
         }
         let moms = netto / 4;
         // if moms is NaN, make it 0
@@ -108,10 +109,11 @@ export default class ObjectSummarizer extends Component {
                                 antal={item.antal}
                                 pris={item.pris}
                                 sum={item.sum}
-                                rabatt={0}
+                                rabatt={this.rabatt}
                                 parentCallback={this.sendCallback} />})}
             </tbody>
             </Table>)
+
         }
         catch (e) {
             //console.log(e);

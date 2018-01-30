@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import moment from 'moment';
 import 'react-tabs/style/react-tabs.css';
 import logo from './images/Schiedel_logo.png';
 import './App.css';
+
 
 import Prisforslag from './views/Prisforslag/Prisforslag';
 import Produkter from './views/Produkter/Produkter';
@@ -134,18 +136,21 @@ export default class App extends Component {
                                 antal: 0,
                                 pris: 3000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 231,
                                 antal: 0,
                                 pris: 1500,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 312,
                                 antal: 0,
                                 pris: 2000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                         ],
 
@@ -166,18 +171,21 @@ export default class App extends Component {
                                 antal: 0,
                                 pris: 3000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 231,
                                 antal: 0,
                                 pris: 1500,
                                 sum: 0,
+                                rabatt: 0,
                             },
                             {
                                 number: 312,
                                 antal: 0,
                                 pris: 2000,
                                 sum: 0,
+                                rabatt: 0,
                             },
                         ],
                     kranbil: false,
@@ -185,6 +193,7 @@ export default class App extends Component {
                     kjorer: false,
 
                     beskjed: '',
+                    startDate: moment(),
                 },
             },
             produkterState: {
@@ -205,8 +214,8 @@ export default class App extends Component {
          };
     }
 
-    prisforslagCallback = (state) => {
-        this.setState({
+    prisforslagCallback = async (state) => {
+        await this.setState({
             prisforslagState: state,
         });
     }
