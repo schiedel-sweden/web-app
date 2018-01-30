@@ -16,7 +16,8 @@ export default class Produkter extends Component {
             materialTopics: [{id: 0, tagline: "Toggle material 1 items", ingress: "material one"},
                         {id: 1, tagline: "Toggle material 2 items", ingress: "material two"},
                         {id: 2, tagline: "Toggle material 3 items", ingress: "material tree"}],
-
+            // this is where the data from the API will be. Make sure that the data in the API
+            // is formatted properly, so it can be displayed in a good way!
             material: [],
             visible1: true,
             data: [],
@@ -64,7 +65,7 @@ export default class Produkter extends Component {
     * @return object data
     */
     fetchData = async () => {
-        fetch(`${API_URL_NO}/excel/30`)
+        fetch(`http://127.0.0.1:8000/excel/30/`)
             .then(response => response.json())
             .then(responseData => {
                 this.setState({ data: responseData });
@@ -104,7 +105,7 @@ export default class Produkter extends Component {
             visible={this.state.visible1}
             material={this.state.material}
             order={i}
-            setActiveMaterialDetailView = {this.setActiveMaterialDetailView}/>
+            setActiveMaterialDetailView={this.setActiveMaterialDetailView}/>
         );
         return listTouchableBlock;
     }
@@ -126,7 +127,9 @@ export default class Produkter extends Component {
                 }
                 {/* Depending on what condition ismaterialDetailViewActived is
                     it will show different view (MaterialDetail or TouchableBlock)*/}
-                {this.activeView()}
+                {this.state.ismaterialDetailViewActived
+                  ? <MaterialDetail />
+                  : this.listTouchableBlock()}
             </div>
         );
     }

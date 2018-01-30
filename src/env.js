@@ -3,5 +3,5 @@
 * ex: API endpoints or stat variables.
 */
 
-export const API_URL_NO = 'https://jeremydanner.com/api';
+export const API_URL_NO = 'https://API.dev';
 export const API_URL_SV = '';

@@ -5,7 +5,7 @@ import {Row, Col} from 'reactstrap';
 export default class OmOss extends Component {
     render() {
         return (
-            <Col md={12}>
+            <Col md={12} style={{'padding-bottom': '50px'}}>
                 <Row>
                     <Col md={1}></Col>
                     <Col md={10} style={styles.center} class="text-center">
